@@ -6450,7 +6450,7 @@ html *:focus-visible {
 }
 
 .footer-swish {
-  background-image: url("./../images/footer.png");
+  background-image: url(./../images/footer.png);
   background-position-x: 35%;
   background-repeat: repeat-x, repeat-x, no-repeat;
   padding-bottom: 180px;
