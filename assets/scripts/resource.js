@@ -96,8 +96,8 @@ function clearAutoComplete(event, eleTest)
             if(x < (rect.x + rect.width) && x > (rect.x + rect.width - 55))
             {
                 input.value = "";
-                $('#autoComplete_list_1').empty();
-                $('#autoComplete_list_1').attr("hidden","");
+                input.blur();
+                input.focus();
                 $('#autoComplete').keyup();
             }
         }
