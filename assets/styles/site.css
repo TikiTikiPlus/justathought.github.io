@@ -7926,7 +7926,7 @@ ul.accordion {
 
 .global-stats.heading--large {
   font-size: 4.5rem;
-  lineheight: 0.5;
+  line-height: 0.5;
   margin-bottom: 0;
 }
 .global-stats.heading--large sup {
