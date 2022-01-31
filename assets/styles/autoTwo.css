@@ -113,7 +113,7 @@
     display:grid;
     display:-ms-grid;
     grid-template-columns: 33% 33% 33%;
-    -ms-grid-column: 33% 33% 33%;
+    -ms-grid-columns: 33% 33% 33%;
     margin:auto;
     padding-top:0px;
     left: 0%;
@@ -199,8 +199,10 @@
   #header
   {
     display: grid;
+    display: -ms-grid;
     position:relative;
     grid-template-columns: 30% 40% 30%;
+    -ms-grid-columns: 30% 40% 30%;
     width: 100%;
     height: auto;
     z-index:2;
