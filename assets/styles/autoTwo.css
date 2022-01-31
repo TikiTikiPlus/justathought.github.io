@@ -389,6 +389,7 @@ makes it look quite ugly*/
   #header
   {
     grid-template-columns: 30% 40% 30%;
+    -ms-grid-columns: 30% 40% 30%;
   }
 }
 
@@ -412,12 +413,14 @@ makes it look quite ugly*/
   #header
   {
     grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
     padding-top:5%;
   }
   .resource-grid
   {
     /* transform: translate(0%, 0%); */
     grid-template-columns: 50% 50%;
+    -ms-grid-columns: 50% 50%;
     margin-bottom:5%;
     padding-left: 5%;
     padding-right:5%;
@@ -459,6 +462,7 @@ makes it look quite ugly*/
   .resource-grid
   {
     grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
     position: relative;
     margin-bottom: 5%;
     padding-left:auto;
