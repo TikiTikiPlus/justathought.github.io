@@ -6529,7 +6529,7 @@ footer a:hover img {
 }
 .footer-links .link {
   position: relative;
-  float: left;
+  /* float: left; */
   width: 100%;
   min-height: 1px;
   padding-left: 15px;

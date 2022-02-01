@@ -103,8 +103,9 @@
          }
       </script>
             <script src = "./assets/scripts/resource.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script>
-            <script src = "https://github.com/douglascrockford/JSON-js/blob/master/json2.js"></script>
+            <!-- <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script> -->
+            <script src ="./assets/scripts/autoComplete.min.js"></script>
+            <!-- <script src = "https://github.com/douglascrockford/JSON-js/blob/master/json2.js"></script> -->
       <script>
          window.onload = function()
          {      
@@ -149,113 +150,98 @@
             src: resourceArray,
               keys: ["Title", "Description", "DataTag"],
               cache: true,
-              filter: (list) => {
-                  // Filter duplicates
-                  // incase of multiple data keys usage
-                  const filteredResults = Array.from(
-                      new Set(list.map((value) => value.match))
-                  ).map((tag) => {
-                      return list.find((value) => value.match === tag);
-                  });
-                  return filteredResults;
-              }
+filter: (function (list) {
+    // Filter duplicates
+    // incase of multiple data keys usage
+    var filteredResults = Array.from(new Set(list.map(function (value) {
+            return value.match;
+               }))).map(function (tag) {
+            return list.find(function (value) {
+            return value.match === tag;
+            });
+            });
+            return filteredResults;
+            })
           },
           resultsList: {
-              element: (list, data) => {
-               const message = document.createElement("div");
-               // Append message element to the results list
-               var rex = /\S/;
-               data.results=[];
-               for(matchesIndex = 0; matchesIndex<data.matches.length; matchesIndex++)
-               {
-                  if(matchesIndex!=0 && data.matches[matchesIndex].key=="Description")
-                  {                         
-                     if(data.matches[matchesIndex].value.Title == data.matches[matchesIndex-1].value.Title)
-                     {
-                        delete data.matches[matchesIndex];
-                        data.matches = data.matches.filter(rex.test.bind(rex)); 
-                        matchesIndex--;
-                     }
-                  }
-               }
-               for(resultIndex = 0; resultIndex < 5; resultIndex++)
-               {
-                  data.results.push(data.matches[resultIndex]);
-               }
-               var uniq = data.results.reduce(function(a,b){
-                    if (a.indexOf(b) < 0 ) a.push(b);
-                    return a;
-                },[]);
-                data.results = uniq;
-                var filtered = data.results.filter(function(x)
-                {
-                    return x!== undefined;
-                })
-                data.results = filtered;
-                for(resultsIndex = 0; resultsIndex < data.results.length; resultsIndex++)
-                {
-                    if(data.results[resultsIndex].key=="Description")
-                    {
-                        data.results[resultsIndex].match = data.results[resultsIndex].value.Title;
-                        data.results[resultsIndex].key = 'Title';
-                    }
-                }
-                $('#autoComplete_list_1').css("visibility", "visible");
-                $('#autoComplete_list_1').empty();
-                for(i = 0; i < data.results.length; i++)
-                {
-                    var x = document.createElement("li");
-                    x.innerHTML=data.results[i].match;
-                    x.onclick=function(){
-                        $('#autoComplete').value = this.textContent;
-                    };
-                    x.setAttribute('onclick','listClicky(this);');
-                    x.setAttribute('class', 'results');
-                    $('#autoComplete_list_1').append(x);
-                }
-                $('.card-resources').css("display","none");
-                $('.card-resources').css("visibility","hidden");
-                var resultIndex = 0;
-                try
-                {
-                for(contentIndex = 0; contentIndex<content.length;)
-                {
-                  if(data.results[resultIndex].key == 'DataTag')
-                  {
-                     resultIndex++;
-                  }
-                  if(titleContent[contentIndex].textContent == data.results[resultIndex].value.Title)
-                  {
-                     content[contentIndex].style.display="block";
-                     content[contentIndex].style.visibility="visible";
-                     resultIndex++;
-                  }
-                  contentIndex++;
-                }
-                while(data.results.length > 5)
-                {
-                  data.results.pop();
-                }
-                }
-                catch
-                {
-                  
-                }
-                message.innerHTML = `Displaying <strong>${data.results.length}</strong> out of <strong>${data.matches.length}</strong> results`;
-                list.prepend(message); 
-                  if (!data.results.length) {
-                      // Create "No Results" message element
-                      // Add class to the created element
-                      message.setAttribute("class", "no_result");
-                      // Add message text content
-                      message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
-                      // Append message element to the results list
-                      list.prepend(message);
-                      for (i = 0; i < content.length; i++) {
-                          content[i].style.visibility = "hidden";
-                      }
-                  }
-              },
+            element: (function (list, data) {
+    var message = document.createElement("div");
+    // Append message element to the results list
+    var rex = /\S/;
+    data.results = [];
+    for (matchesIndex = 0; matchesIndex < data.matches.length; matchesIndex++) {
+        if (matchesIndex != 0 && data.matches[matchesIndex].key == "Description") {
+            if (data.matches[matchesIndex].value.Title == data.matches[matchesIndex - 1].value.Title) {
+                delete data.matches[matchesIndex];
+                data.matches = data.matches.filter(rex.test.bind(rex));
+                matchesIndex--;
+            }
+        }
+    }
+    for (resultIndex = 0; resultIndex < 5; resultIndex++) {
+        data.results.push(data.matches[resultIndex]);
+    }
+    var uniq = data.results.reduce(function (a, b) {
+        if (a.indexOf(b) < 0) a.push(b);
+        return a;
+    }, []);
+    data.results = uniq;
+    var filtered = data.results.filter(function (x) {
+        return x !== undefined;
+    });
+    data.results = filtered;
+    for (resultsIndex = 0; resultsIndex < data.results.length; resultsIndex++) {
+        if (data.results[resultsIndex].key == "Description") {
+            data.results[resultsIndex].match = data.results[resultsIndex].value.Title;
+            data.results[resultsIndex].key = 'Title';
+        }
+    }
+    $('#autoComplete_list_1').css("visibility", "visible");
+    $('#autoComplete_list_1').empty();
+    for (i = 0; i < data.results.length; i++) {
+        var x = document.createElement("li");
+        x.innerHTML = data.results[i].match;
+        x.onclick = function () {
+            $('#autoComplete').value = this.textContent;
+        };
+        x.setAttribute('onclick', 'listClicky(this);');
+        x.setAttribute('class', 'results');
+        $('#autoComplete_list_1').append(x);
+    }
+    $('.card-resources').css("display", "none");
+    $('.card-resources').css("visibility", "hidden");
+    var resultIndex = 0;
+    try {
+        for (contentIndex = 0; contentIndex < content.length;) {
+            if (data.results[resultIndex].key == 'DataTag') {
+                resultIndex++;
+            }
+            if (titleContent[contentIndex].textContent == data.results[resultIndex].value.Title) {
+                content[contentIndex].style.display = "block";
+                content[contentIndex].style.visibility = "visible";
+                resultIndex++;
+            }
+            contentIndex++;
+        }
+        while (data.results.length > 5) {
+            data.results.pop();
+        }
+    } catch (e) {}
+    message.innerHTML = "Displaying <strong>" + data.results.length + "</strong> out of <strong>" + data.matches.length + "</strong> results";
+    list.prepend(message);
+    if (!data.results.length) {
+        // Create "No Results" message element
+        // Add class to the created element
+        message.setAttribute("class", "no_result");
+        // Add message text content
+        message.innerHTML = "<span>Found No Results for \"" + data.query + "\"</span>";
+        // Append message element to the results list
+        list.prepend(message);
+        for (i = 0; i < content.length; i++) {
+            content[i].style.visibility = "hidden";
+        }
+    }
+}),
               noResults: true,
           },
           resultItem: {
@@ -265,46 +251,44 @@
           },
           events: {
               input: {
-                  selection: (event) => {
-                     var auto = document.getElementById("autoComplete");
-                     const feedback = event.detail;
-                      //alert(feedback.selection.value[feedback.selection.key]);
-                      autoCompleteJS.input.blur();
-                      // Prepare User's Selected Value
-                     const selection = feedback.selection.value;
-                      // Render selected choice to selection div
-                      auto.innerHTML = selection[feedback.selection.key];
-                      // Replace Input value with the selected value
-                      autoCompleteJS.input.value = selection[feedback.selection.key];
-                      // Console log autoComplete data feedback
-                      for (i = 0; i < content.length; i++) {
-                          if ((titleContent[i].textContent == selection[feedback.selection.key])||content[i].getAttribute("data-tag")==selection[feedback.selection.key]) {
-                              content[i].style.visibility = "visible";
-                              content[i].style.display = "block";
-                          }
-                          else {
-                              content[i].style.visibility = "hidden";
-                              content[i].style.display = "none";
-                          }
-                      }
-                      if(feedback.selection.key=='DataTag')
-                      {
-                         buttonSearching(feedback.selection.value.DataTag)
-                      }
+               selection: (function (event) {
+               var auto = document.getElementById("autoComplete");
+               var feedback = event.detail;
+                  //alert(feedback.selection.value[feedback.selection.key]);
+               autoCompleteJS.input.blur();
+                  // Prepare User's Selected Value
+               var selection = feedback.selection.value;
+                  // Render selected choice to selection div
+               auto.innerHTML = selection[feedback.selection.key];
+                  // Replace Input value with the selected value
+               autoCompleteJS.input.value = selection[feedback.selection.key];
+                  // Console log autoComplete data feedback
+      for (i = 0; i < content.length; i++) {
+        if (titleContent[i].textContent == selection[feedback.selection.key] || content[i].getAttribute("data-tag") == selection[feedback.selection.key]) {
+            content[i].style.visibility = "visible";
+            content[i].style.display = "block";
+             } 
+             else {
+                  content[i].style.visibility = "hidden";
+                  content[i].style.display = "none";
+               }
+            }
+               if (feedback.selection.key == 'DataTag') {
+                     buttonSearching(feedback.selection.value.DataTag);
                   }
-              }
+               }
+               )}
           },
           searchEngine: "strict",
           maxResults: 15,
-          trigger: (query) => {
-             if(query.length == 0)
-             {
-                //$('#autoComplete').keyup();
-                $('.card-resources').css('visibility', 'visible');
-                $('.card-resources').css('display', 'block');
-             }
-              return query.replace(/ /g, "").length; // Returns "Boolean"
-          },
+          trigger: (function (query) {
+            if (query.length == 0) {
+            //$('#autoComplete').keyup();
+            $('.card-resources').css('visibility', 'visible');
+            $('.card-resources').css('display', 'block');
+         }     
+            return query.replace(/ /g, "").length; // Returns "Boolean"
+         }),
       });
          }
 

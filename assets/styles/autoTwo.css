@@ -404,16 +404,6 @@ makes it look quite ugly*/
   {
     width:50%;
   }
-  .cardResources
-  {
-    display:block;
-    text-align: center;
-    background-color: var(--textbackground);
-    border-radius: 25px;
-    position:relative;
-    padding-bottom:3%;
-    margin-bottom: 8%;
-  }
   .column img 
   {
     padding:0px;
@@ -480,9 +470,10 @@ makes it look quite ugly*/
     }
   .resource-grid
   {
-    display: flex;
+    display: block;
+    /* display:-ms-grid; */
     grid-template-columns: 100%;
-    -ms-grid-columns: 100%;
+    /* -ms-grid-column: auto; */
     position: relative;
     margin-bottom: 5%;
     padding-left:auto;

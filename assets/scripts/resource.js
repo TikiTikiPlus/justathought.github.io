@@ -28,13 +28,12 @@ function resourceOnload(){
     contentParagraph = document.querySelectorAll('div.card-resources > p');
     contentTitle = document.querySelectorAll('div.card-resources > h4');
     buttonWrapperButtons = document.querySelectorAll('#buttonWrapper > button');
-    input.addEventListener('keyup', (event) => {
-        const keyName = event.key;
-        if (keyName === 'Enter')
-        {
+    input.addEventListener('keyup', function (event) {
+        var keyName = event.key;
+        if (keyName === 'Enter') {
             input.blur();
         }
-      });
+    });
     buttonsPressed = false;
 }
 function listClicky(thing)
