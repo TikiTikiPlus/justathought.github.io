@@ -9,6 +9,10 @@
   html {
     font-size: 1rem;
     font-family: "PT Sans", sans-serif;
+    box-sizing:border-box;
+  }
+  *, *::before, *::after {
+    box-sizing: inherit;
   }
   body {
     margin: 0;
@@ -110,10 +114,11 @@
   .resource-grid
   {
     position: relative;
-    display:grid;
-    display:-ms-grid;
+    /* display:grid; */
+    display:flex;
+    flex-wrap: wrap;
     grid-template-columns: 33% 33% 33%;
-    -ms-grid-columns: 33% 33% 33%;
+    -ms-grid-columns: 1fr 1fr 1fr;
     margin:auto;
     padding-top:0px;
     left: 0%;
@@ -122,6 +127,7 @@
   .card-resources
   {
     max-width:290px;
+    width: 33.33%;
     display:block;
     text-align: center;
     background-color: var(--textbackground);
@@ -198,8 +204,8 @@
   /*this is the resource hub header*/
   #header
   {
-    display: grid;
-    display: -ms-grid;
+    display: flex;
+    flex-wrap: wrap;
     position:relative;
     grid-template-columns: 30% 40% 30%;
     -ms-grid-columns: 30% 40% 30%;
@@ -394,6 +400,10 @@ makes it look quite ugly*/
 }
 
 @media screen and (max-width: 991px){
+  .card-resources
+  {
+    width:50%;
+  }
   .cardResources
   {
     display:block;
@@ -450,6 +460,15 @@ makes it look quite ugly*/
   }
   @media screen and (max-width: 720px)
   {
+    .card-resources
+    {
+      width:100%;
+    }
+    .card-resources_Title
+    {
+      padding-top: 30px;
+      margin-bottom:10px;
+    }
     #headerContainer #container
     {
       min-height: 30px;
@@ -461,6 +480,7 @@ makes it look quite ugly*/
     }
   .resource-grid
   {
+    display: flex;
     grid-template-columns: 100%;
     -ms-grid-columns: 100%;
     position: relative;
@@ -475,15 +495,15 @@ makes it look quite ugly*/
   } 
   .card-resources_ImageContainer
   {
-    margin-bottom: 12%;
+    margin-bottom: 20px;
   }
-  .cardResources
+  .card-resources
   {
-    width:100%;
-    min-width:100px;
+    width:90%;
+    min-width:90px;
     padding-left: 5px;
     padding-right: 5px;
-    margin-bottom:40px;
+    margin-bottom: 40px;
   }
   #buttonWrapper
   {
