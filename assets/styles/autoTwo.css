@@ -240,6 +240,11 @@ button {
   z-index: 10;
 }
 
+#middleColumnContent
+{
+  -ms-transform: translateY(25%);
+}
+
 .header__squigglyHeader {
   position: relative;
   top: 100%;
@@ -508,5 +513,9 @@ makes it look quite ugly*/
   #buttonWrapper button {
      margin: 3px 0px !important;
   }
+  #middleColumnContent
+{
+  -ms-transform: translateY(5%);
+}
 }
 
