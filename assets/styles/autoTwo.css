@@ -212,8 +212,10 @@ button {
 .nav-container ul li {
   padding-right: 5px;
 }
-
-
+.nav-container a
+{
+  font-size:12px;
+}
 /*this is the resource hub header*/
 
 #header {
@@ -244,7 +246,10 @@ button {
 {
   -ms-transform: translateY(25%);
 }
-
+#middleColumnContent > p
+{
+  font-size: 15px;
+}
 .header__squigglyHeader {
   position: relative;
   top: 100%;
