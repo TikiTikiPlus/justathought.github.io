@@ -290,7 +290,10 @@ button {
   margin-bottom: 0px;
   padding-right: 50px;
 }
-
+#autoComplete_list_1
+{
+  border-top: none;
+}
 .autoComplete_Image {
   background-image: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png);
 }
