@@ -169,6 +169,8 @@ filter: (function (list) {
     var inner = document.createElement("div");
     inner.setAttribute("class", "innerBorder");
     var message = document.createElement("div");
+    message.setAttribute("class", "resultMessage");
+    message.style.color = "#BEA9D2";
     // Append message element to the results list
     var rex = /\S/;
     data.results = [];

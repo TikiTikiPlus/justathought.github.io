@@ -99,16 +99,14 @@ function inputZero(valueLength) {
     } else {
         input.style.borderBottomRightRadius = "0px";
         input.style.borderBottomLeftRadius = "0px";
-        $
         input.setAttribute('class', 'noGlass');
-    }
+    } 
 }
 //deletes the value of autoComplete bar
 function clearAutoComplete(event, eleTest) {
     var rect = eleTest.getBoundingClientRect();
     var x = event.clientX;
-    if (document.querySelector('#autoComplete')
-        .className === 'noGlass') {
+    if (document.querySelector('#autoComplete').className === 'noGlass') {
         // &&(y<rect.y + rect.height && y < rect.y+rect.height-55)
         if (x < (rect.x + rect.width) && x > (rect.x + rect.width - 55)) {
             input.value = "";
