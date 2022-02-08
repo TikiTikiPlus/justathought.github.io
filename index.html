@@ -166,6 +166,8 @@ filter: (function (list) {
           },
           resultsList: {
             element: (function (list, data) {
+    var inner = document.createElement("div");
+    inner.setAttribute("class", "innerBorder");
     var message = document.createElement("div");
     // Append message element to the results list
     var rex = /\S/;
@@ -230,6 +232,7 @@ filter: (function (list) {
     } catch (e) {}
     message.innerHTML = "Displaying <strong>" + data.results.length + "</strong> out of <strong>" + data.matches.length + "</strong> results";
     list.prepend(message);
+    message.prepend(inner);
     if (!data.results.length) {
         // Create "No Results" message element
         // Add class to the created element
@@ -369,9 +372,7 @@ filter: (function (list) {
                         <h1>The Resource Hub</h1>
                         <p>Stay on track of your mental wellbeing with these helpful resource guides.</p>
                         <div class="autoComplete_wrapper">
-                           <span> 
                            <input id="autoComplete" class="magnifyingGlass" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" tabindex="1" onkeyup="buttonSearching(this.value); inputZero(this.value.length)" onclick="clearAutoComplete(event,this)">
-                           </span>
                         </div>
                         </div>
                      </div>
