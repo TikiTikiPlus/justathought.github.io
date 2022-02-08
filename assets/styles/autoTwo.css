@@ -289,11 +289,6 @@ button {
   z-index: 600;
   margin-bottom: 0px;
   padding-right: 50px;
-}x
-#autoComplete_list_1
-{
-  border-color: #cdcff8;
-  border-top: none;
 }
 .autoComplete_Image {
   background-image: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png);
@@ -383,6 +378,8 @@ makes it look quite ugly*/
   z-index:601;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
+  border-color: #cdcff8;
+  border-top: none;
 }
 
 .autoComplete_wrapper>ul>li {
