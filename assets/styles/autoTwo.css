@@ -289,9 +289,10 @@ button {
   z-index: 600;
   margin-bottom: 0px;
   padding-right: 50px;
-}
+}x
 #autoComplete_list_1
 {
+  border-color: #cdcff8;
   border-top: none;
 }
 .autoComplete_Image {
@@ -303,7 +304,7 @@ button {
 }
 
 .noGlass {
-  background-image: url("./../../uploads/ResourceImage/xButton-removebg-preview(1).png");
+  background-image: url(./../../uploads/ResourceImage/xButtonFinal.png);
   background-size: 55px;
 }
 
