@@ -130,6 +130,18 @@ button {
   background-color: white;
 }
 
+#buttonWrapper button:hover
+{
+  color:#86043d;
+  border: solid #86043d;
+}
+#buttonWrapper button:focus
+{
+  color: white;
+  background-color: #c9467f;
+  border-color:#c9467f;
+}
+
 .resource-grid {
   position: relative;
   display: flex;
@@ -218,10 +230,6 @@ button {
 .nav-container ul li {
   padding-right: 5px;
 }
-.nav-container a
-{
-  font-size:12px;
-}
 /*this is the resource hub header*/
 
 #header {
@@ -276,11 +284,12 @@ button {
 }
 
 #autoComplete {
-  border-radius: 25px;
-  border-color: #cdcff8;
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
   /* color: #BEA9D2; */
   padding-left: 20px;
-  padding-right: 20px;
   background-color: white;
   background-position: right;
   background-repeat: no-repeat;
@@ -288,19 +297,24 @@ button {
   position: relative;
   z-index: 600;
   margin-bottom: 0px;
-  padding-right: 50px;
+  border:none;
 }
 .autoComplete_Image {
-  background-image: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png);
+  /* background-image: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png); */
 }
 
 .magnifyingGlass {
-  background: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png);
+  content: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png);
 }
 
 .noGlass {
-  background-image: url(./../../uploads/ResourceImage/xButtonFinal.png);
-  background-size: 55px;
+  content: url(./../../uploads/ResourceImage/xButtonFinal.png);
+  width:50px;
+  height: auto;
+  margin:auto;
+  padding:auto;
+  /* background-size: 55px; */
+  cursor:pointer;
 }
 
 .column {
@@ -342,15 +356,20 @@ makes it look quite ugly*/
 /*autoComplete stuff here*/
 
 .autoComplete_wrapper {
-  display: inline-block;
+  display: inline-flex;
   position: relative;
   z-index: 600;
+  margin:auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 50px;
+  /* margin-right:auto; */
 }
 
 .autoComplete_wrapper>input {
   font-size: 1rem;
   color: rgb(116, 116, 116);
-  border-radius: 4px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   outline: none;
   height: 45px;
@@ -378,7 +397,7 @@ makes it look quite ugly*/
   z-index:601;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-  border-color: #cdcff8;
+  /* border-color: #cdcff8; */
   border-top: none;
 }
 
@@ -446,18 +465,19 @@ makes it look quite ugly*/
 }
 
 @media screen and (max-width: 991px) {
-  .column img {
-     display: none !important;
-     visibility: hidden !important;
-  }
   .card-resources {
      width: 50%;
   }
-  .column img {
+  #header__imageLeft img {
      padding: 0px;
      display: none;
      visibility: hidden !important;
   }
+  #header__imageRight img {
+    padding: 0px;
+    display: none;
+    visibility: hidden !important;
+ }
   .resource-grid {
      /* transform: translate(0%, 0%); */
      grid-template-columns: 50% 50%;
