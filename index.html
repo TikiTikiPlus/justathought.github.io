@@ -297,18 +297,6 @@ return filteredResults;
                 if (feedback.selection.key == 'DataTag') {
                     buttonSearching(feedback.selection.value.DataTag);
                 }
-                auto.value = "";
-                logKey();
-               // $("#autoComplete").keyup();
-               //  var textPaste = input.value;
-               //  input.value = "";
-               //  var e = new KeyboardEvent('keydown',{'key':8,'which':8});// 32 is the keycode for the space bar
-               //  var a = new KeyboardEvent('keyup',{'keyCode':a,'which':65});
-               //  input.dispatchEvent(e);
-               //  input.dispatchEvent(a);
-               //  input.blur(); 
-               //  input.focus();
-               //  console.log(input.value);
             })
         }
     }
@@ -324,8 +312,21 @@ trigger: query => {
   }
 
   return query.replace(/ /g, "").length; // Returns "Boolean"
-}
-, });
+}});
+autoCompleteJS.input.addEventListener("selection", function (event) {
+//   const feedback = event.detail;
+//   autoCompleteJS.input.blur();
+//   // Prepare User's Selected Value
+//   const selection = feedback.selection.value[feedback.selection.key];
+//   // Render selected choice to selection div
+//   document.querySelector(".selection").innerHTML = selection;
+//   // Replace Input value with the selected value
+//   autoCompleteJS.input.value = selection;
+//   // Console log autoComplete data feedback
+//   console.log(feedback);
+  let autoCompleteBox = document.getElementById("autoComplete");
+  autoCompleteJS.start(autoCompleteBox.value);
+});
 }
 
       </script>

@@ -304,12 +304,10 @@ button {
   margin-bottom: 0px;
   border:none;
 }
-.autoComplete_Image {
-  /* background-image: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png); */
-}
 
 .magnifyingGlass {
   content: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png);
+  width:50px;
 }
 
 .noGlass {

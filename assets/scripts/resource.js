@@ -70,21 +70,7 @@ function listClicky(thing) {
 //searches if texts in the button is the same as the value of input/buttons
 //and shows the cards up
 function logKey() {
-  console.log("Hello");
-  var evt = new Event("look", {"bubbles":true, "cancelable":false});
-  document.dispatchEvent(evt);
-  input.value += `a`;
-  input.value +=` `;
-  input.value += `e`;
-  // input.value = "";
-  input.dispatchEvent(evt);
-  input.focus();
-  // var e = new KeyboardEvent('keyup',{'key':8,'which':8});// 32 is the keycode for the space bar
-  // //var a = new KeyboardEvent('keyup',{'keyCode':a,'which':65});
-  // input.dispatchEvent(e); 
-  // //input.dispatchEvent(a);
-  // input.blur(); 
-  // input.focus();
+  autoCompleteJS.start("thing");
 }
 
 function buttonPressed(buttonValue) {
