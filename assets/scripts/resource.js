@@ -44,6 +44,21 @@ function resourceOnload() {
     $('#autoComplete_list_1').attr('hidden', '""'); // Do your stuff
   });
 }
+function refocus()
+{
+ for(let b = 0; b< buttonWrapperButtons.length; b++)
+  {
+    console.log(buttonWrapperButtons[b].textContent);
+      if(buttonWrapperButtons[b].getAttribute('buttonStatus')=='pressed')
+      {
+        console.log("sup");
+        // buttonWrapperButtons[b].click();
+        setTimeout(function() {
+          buttonWrapperButtons[b].focus();
+}, 0);
+      }
+  }
+}
 
 function listClicky(thing) {
   document.getElementById("autoComplete").innerHTML = thing.textContent;
@@ -111,7 +126,6 @@ function inputZero(valueLength) {
     $(".autoComplete_wrapper").css("borderBottomRightRadius","0px");
     let wrapping = document.querySelector(".autoComplete_wrapper");
     let boxWidth = wrapping.offsetWidth
-    console.log(boxWidth);
     $('#autoComplete_list_1').css("width",boxWidth);
   }
 } //deletes the value of autoComplete bar
@@ -146,6 +160,9 @@ function buttonSearching(buttonText) {
 
 
 function buttonChange(textSearch, buttonsPressed) {
+  for (i = 0; i < buttonWrapperButtons.length; i++) {
+    buttonWrapperButtons[i].blur();
+  }
   if (buttonsPressed) {
     for (i = 0; i < content.length; i++) {
       if (textSearch.toLowerCase() === content[i].getAttribute('data-tag').toLowerCase()) {
@@ -156,7 +173,6 @@ function buttonChange(textSearch, buttonsPressed) {
         content[i].style.display = "none";
       }
     }
-    input.foocus();
   } else {
     for (i = 0; i < buttonWrapperButtons.length; i++) {
       buttonWrapperButtons[i].blur();
