@@ -218,7 +218,6 @@ return filteredResults;
                     };
                     x.setAttribute('onclick', 'listClicky(this);');
                     x.setAttribute('class', 'results');
-                  //   $('#autoComplete_list_1').appendChild(x);
                     document.querySelector('#autoComplete_list_1').appendChild(x);
                 }
                 $('.card-resources')
@@ -256,6 +255,7 @@ return filteredResults;
                     for (i = 0; i < content.length; i++) {
                         content[i].style.visibility = "hidden";
                     }
+                    
                 }
         } 
       else
@@ -293,10 +293,22 @@ return filteredResults;
                         content[i].style.visibility = "hidden";
                         content[i].style.display = "none";
                     }
-                }
+                };
                 if (feedback.selection.key == 'DataTag') {
                     buttonSearching(feedback.selection.value.DataTag);
                 }
+                auto.value = "";
+                logKey();
+               // $("#autoComplete").keyup();
+               //  var textPaste = input.value;
+               //  input.value = "";
+               //  var e = new KeyboardEvent('keydown',{'key':8,'which':8});// 32 is the keycode for the space bar
+               //  var a = new KeyboardEvent('keyup',{'keyCode':a,'which':65});
+               //  input.dispatchEvent(e);
+               //  input.dispatchEvent(a);
+               //  input.blur(); 
+               //  input.focus();
+               //  console.log(input.value);
             })
         }
     }
@@ -308,6 +320,7 @@ trigger: query => {
     $('.card-resources').css('visibility', 'visible');
     $('.card-resources').css('display', 'block');
     $('#autoComplete_list_1').attr('hidden', '""');
+
   }
 
   return query.replace(/ /g, "").length; // Returns "Boolean"
@@ -391,8 +404,8 @@ trigger: query => {
                         <h1>The Resource Hub</h1>
                         <p>Stay on track of your mental wellbeing with these helpful resource guides.</p>
                         <div class="autoComplete_wrapper">
-                            <input id="autoComplete"  dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" tabindex="1" onkeyup="buttonSearching(this.value); inputZero(this.value.length)" onclick="clearAutoComplete(event,this)">
-                            <img class="magnifyingGlass" src = "./../../uploads/ResourceImage/magnifyingGlassCopy2.png"></img>
+                            <input id="autoComplete"  dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" tabindex="1" onkeyup="buttonSearching(this.value); inputZero(this.value.length)">
+                            <img class="magnifyingGlass" src = "./../../uploads/ResourceImage/magnifyingGlassCopy2.png" onclick="clearAutoComplete(this)"></img>
                         </div>
                         </div>
                      </div>
