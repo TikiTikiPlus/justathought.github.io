@@ -135,13 +135,6 @@ button {
   color:#86043d;
   border: solid #86043d;
 }
-/* #buttonWrapper button:focus
-{
-  color: white;
-  background-color: #c9467f;
-  border-color:#c9467f;
-} */
-
 .resource-grid {
   position: relative;
   display: flex;
@@ -373,7 +366,7 @@ makes it look quite ugly*/
 .autoComplete_wrapper>input {
   font-size: 1rem;
   color: rgb(116, 116, 116);
-  border: 1px solid rgba(33, 33, 33, 0.2);
+  /* border: 1px solid rgba(33, 33, 33, 0.2); */
   outline: none;
   height: 45px;
   font-weight: 500;
@@ -395,7 +388,6 @@ makes it look quite ugly*/
   margin: 0.5rem 0 0 0;
   border-radius: 0px;
   background-color: #fff;
-  border: 1px solid rgba(33, 33, 33, 0.1);
   outline: none;
   z-index:601;
   border-bottom-left-radius: 25px;
@@ -426,7 +418,7 @@ makes it look quite ugly*/
 }
 .nav-resources a {
   color: #606eb0;
-  border-bottom: 3px solid #606eb0;
+  /* border-bottom: 3px solid #606eb0; */
   cursor: default;
   pointer-events: none;
 }
