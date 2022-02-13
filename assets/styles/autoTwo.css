@@ -225,11 +225,6 @@ button {
 }
 /*this is the resource hub header*/
 
-.nav-container li a
-{
-  font-size:13px;
-}
-
 #header {
   display: flex;
   flex-wrap: wrap;
