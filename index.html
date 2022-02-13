@@ -121,7 +121,30 @@
           // Loop for the number of objects you want to push to the array
           for (var i = 0; i < content.length; i++) {
               obj = {};
-              // Create the properties within a new object, and push it into the array
+            if(content[i].getAttribute('data-tag').includes(','))
+               {
+                  myArray = content[i].getAttribute('data-tag').split(",");
+                  for(myArrayIndex = 0; myArrayIndex < myArray; myArrayIndex++){
+                  for (var j = 0; j < props.length; j++) {
+                  //1st entry here is the titles of the text
+                  if (j == 0) {
+                      obj[props[j]] = titleContent[i].textContent;
+                  }
+                  //2nd entry is the data tags
+                  if(j == 1) {   
+                     
+                     obj[props[j]] = myArray[myArrayIndex];
+                  }
+                  if(j==2)
+                  {
+                     obj[props[j]] = description[i].textContent;
+                  }
+                  arr.push(obj);
+               }
+               }  
+               }
+            else
+              {// Create the properties within a new object, and push it into the array
               for (var j = 0; j < props.length; j++) {
                   //1st entry here is the titles of the text
                   if (j == 0) {
@@ -129,15 +152,17 @@
                   }
                   //2nd entry is the data tags
                   if(j == 1) {
-                      obj[props[j]] = content[i].getAttribute('data-tag');
+                     
+                     obj[props[j]] = content[i].getAttribute('data-tag');
                   }
                   if(j==2)
                   {
                      obj[props[j]] = description[i].textContent;
                   }
               }
-      
               arr.push(obj);
+            }
+            
           }
             JSONarray = JSON.stringify(arr);
             return JSON.parse(JSONarray);
@@ -177,7 +202,6 @@ return filteredResults;
                 // Append message element to the results list
                 var rex = /\S/;
                 data.results = [];
-
                 for (matchesIndex = 0; matchesIndex < data.matches.length; matchesIndex++) {
                     if (matchesIndex != 0 && data.matches[matchesIndex].key == "Description") {
                         if (data.matches[matchesIndex].value.Title == data.matches[matchesIndex - 1].value.Title) {
@@ -216,7 +240,7 @@ return filteredResults;
                         $('#autoComplete')
                             .value = this.textContent;
                     };
-                    x.setAttribute('onclick', 'listClicky(this);');
+                    //x.setAttribute('onclick', 'listClicky(this);');
                     x.setAttribute('class', 'results');
                     document.querySelector('#autoComplete_list_1').appendChild(x);
                 }
@@ -227,8 +251,10 @@ return filteredResults;
                 var resultIndex = 0;
                 try {
                     for (contentIndex = 0; contentIndex < content.length;) {
-                        if (data.results[resultIndex].key == 'DataTag') {
-                            resultIndex++;
+                        if (data.results[resultIndex].key == listClicky(data.results[resultIndex].key)) {
+                           //console.log(data.results[resultIndex].value.DataTag);
+                           buttonChange(data.results[resultIndex].value.DataTag, true);
+                           resultIndex++;
                         }
                         if (titleContent[contentIndex].textContent == data.results[resultIndex].value.Title) {
                             content[contentIndex].style.display = "block";
@@ -255,7 +281,6 @@ return filteredResults;
                     for (i = 0; i < content.length; i++) {
                         content[i].style.visibility = "hidden";
                     }
-                    
                 }
         } 
       else
@@ -273,11 +298,14 @@ return filteredResults;
     }
     , events: {
         input: {
+            focus:(event)=>{
+               autoCompleteJS.start(input.value);
+            },
             selection: (function (event) {
                 var auto = document.getElementById("autoComplete");
                 var feedback = event.detail;
                 //alert(feedback.selection.value[feedback.selection.key]);
-                autoCompleteJS.input.blur();
+                //autoCompleteJS.input.blur();
                 // Prepare User's Selected Value
                 var selection = feedback.selection.value;
                 // Render selected choice to selection div
@@ -285,18 +313,18 @@ return filteredResults;
                 // Replace Input value with the selected value
                 autoCompleteJS.input.value = selection[feedback.selection.key];
                 // Console log autoComplete data feedback
-                for (i = 0; i < content.length; i++) {
-                    if (titleContent[i].textContent == selection[feedback.selection.key] || content[i].getAttribute("data-tag") == selection[feedback.selection.key]) {
+               //  if (feedback.selection.key === 'DataTag') {
+               //      buttonChange(auto.value,true);
+               //  }
+               for (i = 0; i < content.length; i++) {
+                    if (titleContent[i].textContent == selection[feedback.selection.key]) {
                         content[i].style.visibility = "visible";
                         content[i].style.display = "block";
                     } else {
                         content[i].style.visibility = "hidden";
                         content[i].style.display = "none";
                     }
-                };
-                if (feedback.selection.key == 'DataTag') {
-                    buttonSearching(feedback.selection.value.DataTag);
-                }
+               }
             })
         }
     }
@@ -314,16 +342,6 @@ trigger: query => {
   return query.replace(/ /g, "").length; // Returns "Boolean"
 }});
 autoCompleteJS.input.addEventListener("selection", function (event) {
-//   const feedback = event.detail;
-//   autoCompleteJS.input.blur();
-//   // Prepare User's Selected Value
-//   const selection = feedback.selection.value[feedback.selection.key];
-//   // Render selected choice to selection div
-//   document.querySelector(".selection").innerHTML = selection;
-//   // Replace Input value with the selected value
-//   autoCompleteJS.input.value = selection;
-//   // Console log autoComplete data feedback
-//   console.log(feedback);
   let autoCompleteBox = document.getElementById("autoComplete");
   autoCompleteJS.start(autoCompleteBox.value);
 });
@@ -376,7 +394,8 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
                         <li class="nav-anxiety"><a tabindex="0" href="/anxiety">Generalised Anxiety</a></li>
                         <li class="nav-depression"><a tabindex="0" href="/depression">Depression</a></li>
                         <li class="nav-covid19"><a tabindex="0" href="/covid19">Staying on Track</a></li>
-                        <li class="nav-mixed"><a tabindex="0" href="/mixed">Mixed Depression &amp; Anxiety</a></li>
+                        <li class="nav-mixed"><a tabindex="0" h
+                           ref="/mixed">Mixed Depression &amp; Anxiety</a></li>
                         <!-- <li class="nav-anxiety"><a tabindex="0" href="/anxiety">Generalised Anxiety</a></li>
                            <li class="nav-depression"><a tabindex="0" href="/depression">Depression</a></li>
                            <li class="nav-mixed"><a href="/mixed">Mixed Depression & Anxiety</a></li>
@@ -419,9 +438,9 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
             </div>
             <div class = "container">
                 <div id = "buttonWrapper">
-                    <button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonStatus = "notPressed" onblur="refocus()">Anxiety</button>
-                    <button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonStatus = "notPressed" onblur="refocus()">Depression</button>
-                    <button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonStatus = "notPressed" onblur="refocus()">Wellbeing</button>
+                  <button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonStatus = "notPressed">Anxiety</button>
+                  <button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonStatus = "notPressed">Depression</button>
+                  <button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonStatus = "notPressed">Wellbeing</button>
                 </div>
             </div>
             <div class = "container">
@@ -444,7 +463,7 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
                      <p class = "card-resources_Description">Listen to the audio version of our Staying on Track quick course, to help you through times of stress and uncertainty.</p>
                      <button class = "card-resources_Button">Listen</button>
                   </div>
-                  <div class = "card-resources" data-tag = "Wellbeing">
+                  <div class = "card-resources" data-tag = "Wellbeing,Anxiety">
                      <div class = "card-resources_ImageContainer">
                         <img src = "./uploads/ResourceImage/ImproveYourSleep.png"/>
                         <button class = "small" style= "background-image: url(./uploads/ResourceImage/Read.svg);"></button>

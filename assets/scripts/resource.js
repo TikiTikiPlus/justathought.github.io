@@ -21,7 +21,7 @@ function blurContent() {
 
 function resourceOnload() {
   input = document.querySelector('#autoComplete');
-  content = document.querySelectorAll('div.card-resources');
+  content = $('.card-resources');
   contentParagraph = document.querySelectorAll('div.card-resources > p');
   contentTitle = document.querySelectorAll('div.card-resources > h4');
   buttonWrapperButtons = document.querySelectorAll('#buttonWrapper > button');
@@ -42,30 +42,25 @@ function resourceOnload() {
   input.addEventListener('change', () => input.hasChanged = true);
   input.addEventListener('blur', () => {
     $('#autoComplete_list_1').attr('hidden', '""'); // Do your stuff
+    $('.autoComplete_wrapper').css('border-radius','50px')
+    $('#autoComplete').css('border-bottom-left-radius','25px');
   });
 }
 function refocus()
 {
  for(let b = 0; b< buttonWrapperButtons.length; b++)
   {
-    console.log(buttonWrapperButtons[b].textContent);
       if(buttonWrapperButtons[b].getAttribute('buttonStatus')=='pressed')
       {
-        console.log("sup");
         // buttonWrapperButtons[b].click();
         setTimeout(function() {
           buttonWrapperButtons[b].focus();
-}, 0);
-      }
+      }, 0);
+    }
   }
 }
-
 function listClicky(thing) {
-  document.getElementById("autoComplete").innerHTML = thing.textContent;
-  document.getElementById("autoComplete").value = thing.textContent;
-  //$("#autoComplete").keyup();  
-  //document.getElementById("autoComplete").outerText = thing.textContent;
-  //return thing;
+  return thing = "DataTag";
 } //starts when the buttons are pressed
 //searches if texts in the button is the same as the value of input/buttons
 //and shows the cards up
@@ -86,9 +81,6 @@ function buttonPressed(buttonValue) {
   }
 } //checks if input is zero or not
 //if it is, then show every content
-
-
-
 function inputZero(valueLength) {
   if(valueLength > 0)
   {
@@ -100,7 +92,6 @@ function inputZero(valueLength) {
   }
   if (valueLength < 3) {
     input.style.borderBottomLeftRadius = "25px";
-   
     // input.setAttribute('class', 'magnifyingGlass');
     $('.card-resources').css('visibility', 'visible');
     $('.card-resources').css('display', 'block');
@@ -130,28 +121,26 @@ function clearAutoComplete(xButton) {
 function buttonSearching(buttonText) {
   buttonsPressed = false;
   var a = 0;
-
   for (j = 0; j < buttonWrapperButtons.length; j++) {
     if (buttonWrapperButtons[j].textContent.toLowerCase() === buttonText.toLowerCase()) {
       buttonWrapperButtons[j].setAttribute('buttonStatus', 'pressed');
+      buttonWrapperButtons[j].style.color = 'white';
+      buttonWrapperButtons[j].style.backgroundColor = '#c9467f';
       a = j;
       buttonsPressed = true;
     } else {
       buttonWrapperButtons[j].setAttribute('buttonStatus', 'notPressed');
+      buttonWrapperButtons[j].style.color = '#c9467f';
+      buttonWrapperButtons[j].style.backgroundColor = 'white';
     }
   }
-
+  console.log(buttonText);
   buttonChange(buttonText, buttonsPressed);
 } //shows which button to show when buttons are pressed
-
-
 function buttonChange(textSearch, buttonsPressed) {
-  for (i = 0; i < buttonWrapperButtons.length; i++) {
-    buttonWrapperButtons[i].blur();
-  }
   if (buttonsPressed) {
     for (i = 0; i < content.length; i++) {
-      if (textSearch.toLowerCase() === content[i].getAttribute('data-tag').toLowerCase()) {
+      if (content[i].getAttribute('data-tag').toLowerCase().includes(textSearch.toLowerCase())) {
         content[i].style.visibility = "visible";
         content[i].style.display = "block";
       } else {
@@ -161,7 +150,10 @@ function buttonChange(textSearch, buttonsPressed) {
     }
   } else {
     for (i = 0; i < buttonWrapperButtons.length; i++) {
-      buttonWrapperButtons[i].blur();
+      buttonWrapperButtons[i].setAttribute('buttonStatus', 'notPressed');
+      buttonWrapperButtons[i].style.color = '#c9467f';
+      buttonWrapperButtons[i].style.backgroundColor = 'white';
     }
   }
+  input.focus();
 }

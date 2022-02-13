@@ -135,12 +135,12 @@ button {
   color:#86043d;
   border: solid #86043d;
 }
-#buttonWrapper button:focus
+/* #buttonWrapper button:focus
 {
   color: white;
   background-color: #c9467f;
   border-color:#c9467f;
-}
+} */
 
 .resource-grid {
   position: relative;
