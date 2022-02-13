@@ -60,7 +60,8 @@ function refocus()
   }
 }
 function listClicky(thing) {
-  return thing = "DataTag";
+  console.log("listclicky");
+  buttonPressed(thing);
 } //starts when the buttons are pressed
 //searches if texts in the button is the same as the value of input/buttons
 //and shows the cards up
@@ -77,7 +78,7 @@ function buttonPressed(buttonValue) {
     input.value = "";
     buttonsPressed = false;
     $('#autoComplete').keyup();
-    buttonValue.setAttribute("buttonStatus", "notPressed"); //buttonChange(0,buttonsPressed);
+    buttonValue.setAttribute("buttonStatus", "notPressed");
   }
 } //checks if input is zero or not
 //if it is, then show every content
@@ -134,7 +135,6 @@ function buttonSearching(buttonText) {
       buttonWrapperButtons[j].style.backgroundColor = 'white';
     }
   }
-  console.log(buttonText);
   buttonChange(buttonText, buttonsPressed);
 } //shows which button to show when buttons are pressed
 function buttonChange(textSearch, buttonsPressed) {
@@ -155,5 +155,6 @@ function buttonChange(textSearch, buttonsPressed) {
       buttonWrapperButtons[i].style.backgroundColor = 'white';
     }
   }
+  console.log("buttonChange");
   input.focus();
 }

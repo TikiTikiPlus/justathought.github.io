@@ -240,7 +240,7 @@ return filteredResults;
                         $('#autoComplete')
                             .value = this.textContent;
                     };
-                    //x.setAttribute('onclick', 'listClicky(this);');
+                    x.setAttribute('onclick', 'listClicky(this);');
                     x.setAttribute('class', 'results');
                     document.querySelector('#autoComplete_list_1').appendChild(x);
                 }
@@ -251,7 +251,7 @@ return filteredResults;
                 var resultIndex = 0;
                 try {
                     for (contentIndex = 0; contentIndex < content.length;) {
-                        if (data.results[resultIndex].key == listClicky(data.results[resultIndex].key)) {
+                        if (data.results[resultIndex].key == "DataTag") {
                            //console.log(data.results[resultIndex].value.DataTag);
                            buttonChange(data.results[resultIndex].value.DataTag, true);
                            resultIndex++;
@@ -266,6 +266,7 @@ return filteredResults;
                     while (data.results.length > 5) {
                         data.results.pop();
                     }
+                    input.focus();
                 } catch (e) {}
                 message.innerHTML = "Displaying <strong>" + data.results.length + "</strong> out of <strong>" + data.matches.length + "</strong> results";
                 list.prepend(message);
@@ -312,10 +313,6 @@ return filteredResults;
                 auto.innerHTML = selection[feedback.selection.key];
                 // Replace Input value with the selected value
                 autoCompleteJS.input.value = selection[feedback.selection.key];
-                // Console log autoComplete data feedback
-               //  if (feedback.selection.key === 'DataTag') {
-               //      buttonChange(auto.value,true);
-               //  }
                for (i = 0; i < content.length; i++) {
                     if (titleContent[i].textContent == selection[feedback.selection.key]) {
                         content[i].style.visibility = "visible";
@@ -325,6 +322,9 @@ return filteredResults;
                         content[i].style.display = "none";
                     }
                }
+               console.log("selection");
+               auto.blur();
+               auto.focus();
             })
         }
     }
@@ -344,6 +344,7 @@ trigger: query => {
 autoCompleteJS.input.addEventListener("selection", function (event) {
   let autoCompleteBox = document.getElementById("autoComplete");
   autoCompleteJS.start(autoCompleteBox.value);
+  input.focus();
 });
 }
 
