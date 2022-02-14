@@ -309,7 +309,10 @@ button {
   height:auto;
   margin:auto;
   padding:auto;
-  margin-left: 13px;
+  padding-right:1px;
+  /* margin-left: 13px; */
+  margin-right:13px;
+  /* padding-right:20px; */
   /* padding-right:5px;
   margin-right: 5px; */
   /* background-size: 55px; */
@@ -365,7 +368,10 @@ makes it look quite ugly*/
   /* color: #BEA9D2; */
   transition: all 0.3s ease;
 }
-
+.resultMessage strong
+{
+  color: #969696;
+}
 .autoComplete_wrapper>ul {
   position: absolute;
   /* max-height: 226px; */
@@ -373,7 +379,7 @@ makes it look quite ugly*/
   top: 75%;
   left: 0;
   right: 0;
-  padding: 0;
+  padding:0px;
   margin: 0.5rem 0 0 0;
   border-radius: 0px;
   background-color: #fff;
@@ -384,9 +390,8 @@ makes it look quite ugly*/
   /* border-color: #cdcff8; */
   border-top: none;
   box-shadow: 0 8px 6px -6px rgb(0 0 0 / 15%);
-
+  padding-bottom:10px;
 }
-
 .autoComplete_wrapper>ul>li {
   padding: 10px 30px;
   list-style: none;
@@ -402,11 +407,28 @@ makes it look quite ugly*/
   transition: all 0.2s ease;
   z-index: 600;
 }
-
-.resultMessage strong
-{
-  color: #6371B6;
+/*Scrollbar Works on Firefox */
+* {
+  scrollbar-width: none;
+  /* scrollbar-color: blue orange; */
 }
+
+/*Scrrollbar Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* *::-webkit-scrollbar-track {
+  background: orange;
+} */
+
+/* *::-webkit-scrollbar-thumb {
+  background-color: blue;
+  border-radius: 20px;
+  border: 3px solid orange;
+} */
+
+
 .nav-resources a {
   color: #606eb0;
   /* border-bottom: 3px solid #606eb0; */
