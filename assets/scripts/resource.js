@@ -62,8 +62,8 @@ function buttonPressed(buttonValue) {
     buttonsPressed = false;
     $('#autoComplete').keyup();
     buttonValue.setAttribute("buttonStatus", "notPressed");
-    buttonWrapperHover(buttonValue);
   }
+  buttonWrapperHover(buttonValue);
 } //checks if input is zero or not
 //if it is, then show every content
 function inputZero(valueLength) {
@@ -106,6 +106,7 @@ function buttonWrapperHover(hoveredButton)
     hoveredButton.style.backgroundColor = "white";
     hoveredButton.style.border ='3px solid #86043d';
   }
+  hoveredButton.style.border ='3px solid #86043d';
 }
 function buttonWrapperMouseExit(unHoverButton)
 {
@@ -113,8 +114,8 @@ function buttonWrapperMouseExit(unHoverButton)
   if(unHoverButton.getAttribute("buttonStatus")==="notPressed")
   {
     unHoverButton.style.color = '#c9467f';
-    unHoverButton.style.border = '3px solid #c9467f';
   }
+  unHoverButton.style.border = '3px solid #c9467f';
 }
 function buttonSearching(buttonText) {
   buttonsPressed = false;
@@ -150,7 +151,7 @@ function buttonChange(textSearch, buttonsPressed) {
     {
       if(buttonWrapperButtons[i].textContent.toLowerCase()==textSearch.toLowerCase())
       {
-        buttonWrapperButtons[i].setAttribute("buttonPressed", "pressed")
+        buttonWrapperButtons[i].setAttribute("buttonStatus", "pressed")
         buttonWrapperHover(buttonWrapperButtons[i]);
       }
       else
