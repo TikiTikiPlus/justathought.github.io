@@ -132,11 +132,6 @@ button {
   background-color: white;
 }
 
-#buttonWrapper button:hover
-{
-  color:#86043d;
-  border: solid #86043d;
-}
 .resource-grid {
   position: relative;
   display: flex;

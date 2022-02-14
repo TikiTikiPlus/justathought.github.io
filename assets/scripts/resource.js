@@ -117,7 +117,16 @@ function clearAutoComplete(xButton) {
         input.focus();
     }
 }
-
+function buttonWrapperHover(hoveredButton)
+{
+  hoveredButton.style.color ='#86043d';
+  hoveredButton.style.border ='3px solid #86043d';
+}
+function buttonWrapperMouseExit(unHoverButton)
+{
+  unHoverButton.style.color = '#c9467f';
+  unHoverButton.style.border = '3px solid #c9467f';
+}
 function buttonSearching(buttonText) {
   buttonsPressed = false;
   var a = 0;
