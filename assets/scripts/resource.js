@@ -1,7 +1,6 @@
 //start of code. probably name it lol
 //blurs and unblurs the whole body
 function blurContent() {
-  //test.style.opacity = "0.1";
   if (document.getElementById("page_wrapper").className == "wrapper resources") {
     $(".nav-container").css('opacity', 1);
     $(".contentAndHeaderContainer").css('opacity', 0.1);
@@ -15,10 +14,9 @@ function blurContent() {
     $(".container").css('opacity', 1);
     $("footer").css('opacity', 1);
   }
-} //when website has been loaded, call this function.
+} 
+//when website has been loaded, call this function.
 //adds events to autocomplete searchbar
-
-
 function resourceOnload() {
   input = document.querySelector('#autoComplete');
   content = $('.card-resources');
@@ -46,39 +44,25 @@ function resourceOnload() {
     $('#autoComplete').css('border-bottom-left-radius','25px');
   });
 }
-function refocus()
-{
- for(let b = 0; b< buttonWrapperButtons.length; b++)
-  {
-      if(buttonWrapperButtons[b].getAttribute('buttonStatus')=='pressed')
-      {
-        // buttonWrapperButtons[b].click();
-        setTimeout(function() {
-          buttonWrapperButtons[b].focus();
-      }, 0);
-    }
-  }
-}
+//whenever a list item is clicked in the results bar, check if the list item clicked is a
+//dataTag property or not
 function listClicky(thing) {
-  console.log("listclicky");
   buttonPressed(thing);
-} //starts when the buttons are pressed
+} 
+//starts when the buttons are pressed
 //searches if texts in the button is the same as the value of input/buttons
 //and shows the cards up
-function logKey() {
-  autoCompleteJS.start("thing");
-}
-
 function buttonPressed(buttonValue) {
   if (buttonValue.getAttribute("buttonStatus") === "notPressed") {
     input.value = buttonValue.textContent;
     buttonsPressed = true;
-    $('#autoComplete').keyup(); //buttonSearching(buttonValue.textContent);
+    $('#autoComplete').keyup();
   } else {
     input.value = "";
     buttonsPressed = false;
     $('#autoComplete').keyup();
     buttonValue.setAttribute("buttonStatus", "notPressed");
+    buttonWrapperHover(buttonValue);
   }
 } //checks if input is zero or not
 //if it is, then show every content
@@ -98,7 +82,6 @@ function inputZero(valueLength) {
     $('#autoComplete_list_1').attr('hidden', '""');
     $(".autoComplete_wrapper").css("borderBottomRightRadius","50px");
   } else {
-    // input.style.borderBottomRightRadius = "0px";
     input.style.borderBottomLeftRadius = "0px";
     $(".autoComplete_wrapper").css("borderBottomRightRadius","0px");
     let wrapping = document.querySelector(".autoComplete_wrapper");
@@ -106,8 +89,6 @@ function inputZero(valueLength) {
     $('#autoComplete_list_1').css("width",boxWidth);
   }
 } //deletes the value of autoComplete bar
-
-
 function clearAutoComplete(xButton) {
     if(xButton.className=='noGlass')
     {
@@ -119,13 +100,21 @@ function clearAutoComplete(xButton) {
 }
 function buttonWrapperHover(hoveredButton)
 {
-  hoveredButton.style.color ='#86043d';
-  hoveredButton.style.border ='3px solid #86043d';
+  if(hoveredButton.getAttribute("buttonStatus")==="notPressed")
+  {
+    hoveredButton.style.color ='#86043d';
+    hoveredButton.style.backgroundColor = "white";
+    hoveredButton.style.border ='3px solid #86043d';
+  }
 }
 function buttonWrapperMouseExit(unHoverButton)
 {
-  unHoverButton.style.color = '#c9467f';
-  unHoverButton.style.border = '3px solid #c9467f';
+  console.log(unHoverButton.getAttribute("buttonStatus"));
+  if(unHoverButton.getAttribute("buttonStatus")==="notPressed")
+  {
+    unHoverButton.style.color = '#c9467f';
+    unHoverButton.style.border = '3px solid #c9467f';
+  }
 }
 function buttonSearching(buttonText) {
   buttonsPressed = false;
@@ -137,7 +126,8 @@ function buttonSearching(buttonText) {
       buttonWrapperButtons[j].style.backgroundColor = '#c9467f';
       a = j;
       buttonsPressed = true;
-    } else {
+    } 
+    else {
       buttonWrapperButtons[j].setAttribute('buttonStatus', 'notPressed');
       buttonWrapperButtons[j].style.color = '#c9467f';
       buttonWrapperButtons[j].style.backgroundColor = 'white';
@@ -156,11 +146,22 @@ function buttonChange(textSearch, buttonsPressed) {
         content[i].style.display = "none";
       }
     }
-  } else {
+    for (i = 0; i < buttonWrapperButtons.length; i++)
+    {
+      if(buttonWrapperButtons[i].textContent.toLowerCase()==textSearch.toLowerCase())
+      {
+        buttonWrapperButtons[i].setAttribute("buttonPressed", "pressed")
+        buttonWrapperHover(buttonWrapperButtons[i]);
+      }
+      else
+      {
+        buttonWrapperMouseExit(buttonWrapperButtons[i]); 
+      }
+    }
+  } 
+  else {
     for (i = 0; i < buttonWrapperButtons.length; i++) {
-      buttonWrapperButtons[i].setAttribute('buttonStatus', 'notPressed');
-      buttonWrapperButtons[i].style.color = '#c9467f';
-      buttonWrapperButtons[i].style.backgroundColor = 'white';
+      buttonWrapperMouseExit(buttonWrapperButtons[i]);
     }
   }
   console.log("buttonChange");
