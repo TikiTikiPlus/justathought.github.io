@@ -57,6 +57,7 @@ body {
   text-overflow: ellipsis;
   transition: all 0.2s ease;
   outline: none;
+  text-align:center;
 }
 
 h1 {
@@ -294,15 +295,17 @@ button {
 
 .magnifyingGlass {
   content: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png);
-  width:55px;
+  width:58px;
 }
 
 .noGlass {
   content: url(./../../uploads/ResourceImage/xButtonFinal.png);
-  width:55px;
+  width:45px;
   height: auto;
   margin:auto;
   padding:auto;
+  padding-right:5px;
+  margin-right: 5px;
   /* background-size: 55px; */
   cursor:pointer;
 }
@@ -355,6 +358,8 @@ makes it look quite ugly*/
   background-color: white;
   border-radius: 50px;
   box-shadow: 0 8px 6px -6px rgb(0 0 0 / 15%);
+  min-width: 300px;
+  min-height:46.6px;
   /* margin-right:auto; */
 }
 
@@ -363,7 +368,7 @@ makes it look quite ugly*/
   color: rgb(116, 116, 116);
   /* border: 1px solid rgba(33, 33, 33, 0.2); */
   outline: none;
-  height: 45px;
+  height: 46.6px;
   font-weight: 500;
 }
 
@@ -389,6 +394,8 @@ makes it look quite ugly*/
   border-bottom-right-radius: 25px;
   /* border-color: #cdcff8; */
   border-top: none;
+  box-shadow: 0 8px 6px -6px rgb(0 0 0 / 15%);
+
 }
 
 .autoComplete_wrapper>ul>li {

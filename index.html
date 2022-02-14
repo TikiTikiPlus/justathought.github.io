@@ -269,8 +269,6 @@ return filteredResults;
                     input.focus();
                 } catch (e) {}
                 message.innerHTML = "Displaying <strong>" + data.results.length + "</strong> out of <strong>" + data.matches.length + "</strong> results";
-                list.prepend(message);
-                message.prepend(inner);
                 if (!data.results.length) {
                     // Create "No Results" message element
                     // Add class to the created element
@@ -278,11 +276,13 @@ return filteredResults;
                     // Add message text content
                     message.innerHTML = "<span>Found no results for \"" + data.query + "\"</span>";
                     // Append message element to the results list
-                    list.prepend(message);
+                    //list.prepend(message);
                     for (i = 0; i < content.length; i++) {
                         content[i].style.visibility = "hidden";
                     }
                 }
+                list.prepend(message);
+                message.prepend(inner);
         } 
       else
       {

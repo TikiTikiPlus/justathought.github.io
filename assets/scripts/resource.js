@@ -93,13 +93,12 @@ function inputZero(valueLength) {
   }
   if (valueLength < 3) {
     input.style.borderBottomLeftRadius = "25px";
-    // input.setAttribute('class', 'magnifyingGlass');
     $('.card-resources').css('visibility', 'visible');
     $('.card-resources').css('display', 'block');
     $('#autoComplete_list_1').attr('hidden', '""');
     $(".autoComplete_wrapper").css("borderBottomRightRadius","50px");
   } else {
-    input.style.borderBottomRightRadius = "0px";
+    // input.style.borderBottomRightRadius = "0px";
     input.style.borderBottomLeftRadius = "0px";
     $(".autoComplete_wrapper").css("borderBottomRightRadius","0px");
     let wrapping = document.querySelector(".autoComplete_wrapper");
