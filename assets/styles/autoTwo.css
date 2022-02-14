@@ -37,10 +37,12 @@ body {
 }
 .innerBorder
 {
-  width: 84%;
+  /* width: 84%; */
+  /* padding-left:30px;
+  padding-right:30px; */
   height: 1px;
   padding-bottom:17px;
-  margin: 0px auto;
+  margin: 0px 30px;
   border-top: 1px solid #BEA9D2;
 }
 .no_result {
@@ -370,7 +372,7 @@ makes it look quite ugly*/
 }
 .resultMessage strong
 {
-  color: #969696;
+  color: #6573b1;
 }
 .autoComplete_wrapper>ul {
   position: absolute;
@@ -418,17 +420,6 @@ makes it look quite ugly*/
   width: 0px;
 }
 
-/* *::-webkit-scrollbar-track {
-  background: orange;
-} */
-
-/* *::-webkit-scrollbar-thumb {
-  background-color: blue;
-  border-radius: 20px;
-  border: 3px solid orange;
-} */
-
-
 .nav-resources a {
   color: #606eb0;
   /* border-bottom: 3px solid #606eb0; */
@@ -448,7 +439,7 @@ makes it look quite ugly*/
 
 .autoComplete_wrapper>ul>li mark {
   background-color: transparent;
-  color: #969696;
+  color: #6573b1;
   font-weight: bold;
 }
 
