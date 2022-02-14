@@ -41,7 +41,7 @@ body {
   height: 1px;
   padding-bottom:17px;
   margin: 0px auto;
-  border-top: 1px solid #969696;
+  border-top: 1px solid #BEA9D2;
 }
 .no_result {
   margin: 0.3rem;
@@ -419,7 +419,6 @@ makes it look quite ugly*/
 {
   color: #6371B6;
 }
-.resul
 .nav-resources a {
   color: #606eb0;
   /* border-bottom: 3px solid #606eb0; */
