@@ -37,9 +37,11 @@ body {
 }
 .innerBorder
 {
+  width:84%;
   height: 1px;
-  padding-bottom:17px;
-  margin: 0px 30px;
+  padding-bottom:23px;
+  /* margin: 0px 20px; */
+  margin:auto;
   border-top: 1px solid #BEA9D2;
 }
 .no_result {
@@ -366,6 +368,7 @@ makes it look quite ugly*/
   /* color: #BEA9D2; */
   transition: all 0.3s ease;
 }
+
 .resultMessage strong
 {
   color: #6573b1;
