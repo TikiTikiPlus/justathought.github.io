@@ -112,7 +112,7 @@
          {      
       resourceOnload();
       var content = document.querySelectorAll("div.card-resources");
-      var titleContent = document.querySelectorAll("div.card-resources h4");
+      var titleContent = document.querySelectorAll("div.card-resources h2");
       var descriptions = document.querySelectorAll("div.card-resources p");
       var JSONArray;
       function manufactureArray(props, content, titleContent, description) {
@@ -242,6 +242,7 @@ return filteredResults;
                     };
                     x.setAttribute('onclick', 'listClicky(this);');
                     x.setAttribute('class', 'results');
+                    x.setAttribute('tabindex',0)
                     document.querySelector('#autoComplete_list_1').appendChild(x);
                 }
                 $('.card-resources')
@@ -418,140 +419,164 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
                    <div class = "container">
                      <div id = "header">
                      <div class = "column" id = "header__imageLeft">
-                        <img src = "./uploads/ResourceImage/LeftSideResource.png">
+                        <img src = "./uploads/ResourceImage/LeftSideResource.png" alt="left side resource image">
                      </div>
                      <div class = "column" id = "header__autoComplete">
                         <div id = "middleColumnContent">
                         <h1>The Resource Hub</h1>
                         <p>Stay on track of your mental wellbeing with these helpful resource guides.</p>
                         <div class="autoComplete_wrapper">
-                            <input id="autoComplete"  dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" tabindex="1" onkeyup="buttonSearching(this.value); inputZero(this.value.length)">
-                            <img class="magnifyingGlass" onclick="clearAutoComplete(this)"></img>
+                            <input id="autoComplete" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" onkeyup="buttonSearching(this.value); inputZero(this.value.length)">
+                            <img alt="search image" aria-role="button" aria-label = "" class="magnifyingGlass" onclick="clearAutoComplete(this)"></img>
                         </div>
                         </div>
                      </div>
                      <div class = "column" id = "header__imageRight">
-                        <img src = "./uploads/ResourceImage/RightResource.png">
+                        <img alt ="right side resource image" src = "./uploads/ResourceImage/RightResource.png">
                      </div>
                   </div>
                </div>
-                  <img class = "header__squigglyHeader" src = "./uploads/ResourceImage/resourceBelow.png">
+                  <img alt="" class = "header__squigglyHeader" src = "./uploads/ResourceImage/resourceBelow.png">
             </div>
             <div class = "container">
+               <section aria-label="data tag quick search buttons">
                 <div id = "buttonWrapper">
-                  <button class="buttonWrapper_Button" onclick="buttonPressed(this)" onmouseover = "buttonWrapperHover(this)" onmouseout="buttonWrapperMouseExit(this)" buttonStatus = "notPressed">Anxiety</button>
-                  <button class="buttonWrapper_Button" onclick="buttonPressed(this)" onmouseover = "buttonWrapperHover(this)" onmouseout="buttonWrapperMouseExit(this)" buttonStatus = "notPressed">Depression</button>
-                  <button class="buttonWrapper_Button" onclick="buttonPressed(this)" onmouseover = "buttonWrapperHover(this)" onmouseout="buttonWrapperMouseExit(this)"buttonStatus = "notPressed">Wellbeing</button>
+                  <button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonStatus = "notPressed">Anxiety</button>
+                  <button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonStatus = "notPressed">Depression</button>
+                  <button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonStatus = "notPressed">Wellbeing</button>
                 </div>
             </div>
             <div class = "container">
                <div class = "resource-grid">
                   <div class = "card-resources" data-tag = "Anxiety">
                      <div class = "card-resources_ImageContainer">
-                        <img src = "./uploads/ResourceImage/WorryChart.png"/>
-                        <button class = "small" style= "background-image: url(./uploads/ResourceImage/Read.svg);"></button>
-                     </div>
-                     <h4 class = "card-resources_Title">The Worry Chart</h4>
+                        <img alt="worry chart image" src = "./uploads/ResourceImage/WorryChart.png"/>
+                        <div class = "small">
+                        <img alt = "an image of an open book" class = "small_Image" src= "./uploads/ResourceImage/Read.svg"></img>
+                     </div>                     
+                  </div>
+                     <h2 class = "card-resources_Title">The Worry Chart</h2>
                      <p class = "card-resources_Description">This simple "worry chart" can help you learn to let go of negative thoughts and "worries" that may</p>
                      <button class = "card-resources_Button">Read</button>
                   </div>
                   <div class = "card-resources" data-tag = "Wellbeing">
                      <div class = "card-resources_ImageContainer">
-                        <img src = "./uploads/ResourceImage/StayingOnTrack.png"/>
-                        <button class = "small" style= "background-image: url(./uploads/ResourceImage/audio.svg);"></button>
+                        <img alt="staying on track image" src = "./uploads/ResourceImage/StayingOnTrack.png"/>
+                        <div class = "small">
+                           <img class = "small_Image" src= "./uploads/ResourceImage/audio.svg"></img>
+                        </div>    
                      </div>
-                     <h4 class = "card-resources_Title">Staying on Track audio course</h4>
+                     <h2  class = "card-resources_Title">Staying on Track audio course</h2>
                      <p class = "card-resources_Description">Listen to the audio version of our Staying on Track quick course, to help you through times of stress and uncertainty.</p>
                      <button class = "card-resources_Button">Listen</button>
                   </div>
                   <div class = "card-resources" data-tag = "Wellbeing,Anxiety">
                      <div class = "card-resources_ImageContainer">
-                        <img src = "./uploads/ResourceImage/ImproveYourSleep.png"/>
-                        <button class = "small" style= "background-image: url(./uploads/ResourceImage/Read.svg);"></button>
+                        <img alt = "improve your sleep" src = "./uploads/ResourceImage/ImproveYourSleep.png"/>
+                        <div class = "small">
+                           <img alt = "an image of an open book" class = "small_Image" src= "./uploads/ResourceImage/Read.svg"></img>
+                        </div>   
                      </div>
-                     <h4 class = "card-resources_Title">10 Tips to Improve Your Sleep</h4>
+                     <h2 class = "card-resources_Title">10 Tips to Improve Your Sleep</h2>
                      <p class = "card-resources_Description">Sleep plays an important role in good health and wellbeing.  Learn some simple habits that really help</p>
                      <button class = "card-resources_Button">Read</button>
                   </div>
                   <div class = "card-resources" data-tag = "Wellbeing">
                      <div class = "card-resources_ImageContainer">
-                        <img src = "./uploads/ResourceImage/SeeingThingsClearly.png"/>
-                        <button class = "small" style= "background-image: url(./uploads/ResourceImage/Read.svg);"></button>
+                        <img alt = "see things clearly" src = "./uploads/ResourceImage/SeeingThingsClearly.png"/>
+                        <div class = "small">
+                           <img alt = "an image of an open book" class = "small_Image" src= "./uploads/ResourceImage/Read.svg"></img>
+                        </div>   
                      </div>
-                     <h4 class = "card-resources_Title">Seeing Things Clearly resource</h4>
+                     <h2 class = "card-resources_Title">Seeing Things Clearly resource</h2>
                      <p class = "card-resources_Description">The resource will teach you how to challenge your thoughts and see things more clearly.</p>
                      <button class = "card-resources_Button">Read</button>
                   </div>
                   <div class = "card-resources" data-tag = "Wellbeing">
                      <div class = "card-resources_ImageContainer">
-                        <img src = "./uploads/ResourceImage/ProblemSolvingGuide.png"/>
-                        <button class = "small" style= "background-image: url(./uploads/ResourceImage/video.svg);"></button>
+                        <img alt = "problem solving guide" src = "./uploads/ResourceImage/ProblemSolvingGuide.png"/>
+                        <div class = "small">
+                           <img alt="a defaut image of a singular frame of film" class = "small_Image" src= "./uploads/ResourceImage/video.svg"></img>
+                        </div>   
                      </div>
-                     <h4 class = "card-resources_Title">Problem Solving Guide</h4>
+                     <h2 class = "card-resources_Title">Problem Solving Guide</h2>
                      <p class = "card-resources_Description">This guide will teach you how to solve problems practically in a step-by-step process.</p>
                      <button class = "card-resources_Button">Watch</button>
                   </div>
                   <div class = "card-resources" data-tag = "Anxiety">
                      <div class = "card-resources_ImageContainer">
-                        <img src = "./uploads/ResourceImage/BreathingExercise.png"/>
-                        <button class = "small" style= "background-image: url(./uploads/ResourceImage/Read.svg);"></button>
+                        <img alt = "breathing exercise image" src = "./uploads/ResourceImage/BreathingExercise.png"/>
+                        <div class = "small">
+                           <img alt = "an image of an open book" class = "small_Image" src= "./uploads/ResourceImage/Read.svg"></img>
+                        </div>   
                      </div>
-                     <h4 class = "card-resources_Title">3-Minute Breathing Exercise</h4>
+                     <h2 class = "card-resources_Title">3-Minute Breathing Exercise</h2>
                      <p class = "card-resources_Description">This video guides you through a simple 3-minute breathing exercise you can use to reduce tension and anxiety.</p>
                      <button class = "card-resources_Button">Read</button>
                   </div>
                   <div class = "card-resources" data-tag = "Anxiety">
                      <div class = "card-resources_ImageContainer">
-                        <img src = "./uploads/ResourceImage/SupportSomeone.png"/>
-                        <button class = "small" style= "background-image: url(./uploads/ResourceImage/Read.svg);"></button>
+                        <img alt = "support someone image" src = "./uploads/ResourceImage/SupportSomeone.png"/>
+                        <div class = "small">
+                           <img alt = "an image of an open book" class = "small_Image" src= "./uploads/ResourceImage/Read.svg"></img>
+                        </div>   
                      </div>
-                     <h4 class = "card-resources_Title">10 Way to Support Someone</h4>
+                     <h2 class = "card-resources_Title">10 Way to Support Someone</h2>
                      <p class = "card-resources_Description">It can be hard to know how to support a loved one experiencing mental distress. Here's some suggestions that may help</p>
                      <button class = "card-resources_Button">Read</button>
                   </div>
                   <div class = "card-resources" data-tag = "Depression">
                      <div class = "card-resources_ImageContainer">
-                        <img src = "./uploads/ResourceImage/WhatMattersMost.png"/>
-                        <button class = "small" style= "background-image: url(./uploads/ResourceImage/Read.svg);"></button>
+                        <img alt = "what matters most" src = "./uploads/ResourceImage/WhatMattersMost.png"/>
+                        <div class = "small">
+                           <img alt = "an image of an open book" class = "small_Image" src= "./uploads/ResourceImage/Read.svg"></img>
+                        </div>   
                      </div>
-                     <h4 class = "card-resources_Title">What Matters Most</h4>
+                     <h2 class = "card-resources_Title">What Matters Most</h2>
                      <p class = "card-resources_Description">this resource helps you find ways to stay connected to the things that matter most to you during this difficult time.</p>
-                     <button class = "card-resources_Button">Read</button>
+                     <button alt = "an image of an open book" class = "card-resources_Button">Read</button>
                   </div>
                   <div class = "card-resources" data-tag = "Wellbeing">
                      <div class = "card-resources_ImageContainer">
-                        <img src = "./uploads/ResourceImage/PositiveHunt.png"/>
-                        <button class = "small" style= "background-image: url(./uploads/ResourceImage/write.svg)">
-                        </button>
+                        <img alt = "positive hunting" src = "./uploads/ResourceImage/PositiveHunt.png"/>
+                        <div class = "small">
+                           <img alt = "an image of a paper with pen writing on it" class = "small_Image" src= "./uploads/ResourceImage/write.svg"></img>
+                        </div>   
                      </div>
-                     <h4 class = "card-resources_Title">Positive Hunt Worksheet</h4>
+                     <h2 class = "card-resources_Title">Positive Hunt Worksheet</h2>
                      <p class = "card-resources_Description">Taking time to do things you find enjoyable is one way to look after your mental wellbeing. Here are 100 ideas to get you started</p>
                      <button class = "card-resources_Button">Worksheet</button>
                   </div>
                   <div class = "card-resources" data-tag = "Wellbeing">
                      <div class = "card-resources_ImageContainer">
-                        <img src = "./uploads/ResourceImage/AboutSelfEsteem.png"/>
-                        <button class = "small" style= "background-image: url(./uploads/ResourceImage/Read.svg);"></button>
+                        <img alt="self esteem image" src = "./uploads/ResourceImage/AboutSelfEsteem.png"/>
+                        <div class = "small">
+                           <img alt = "an image of an open book" class = "small_Image" src= "./uploads/ResourceImage/Read.svg"></img>
+                        </div>   
                      </div>
-                     <h4 class = "card-resources_Title">About Self Esteem</h4>
+                     <h2 class = "card-resources_Title">About Self Esteem</h2>
                      <p class = "card-resources_Description">Taking time to do things you find enjoyable is one way to look after your mental wellbeing. Here are 100 ideas to get you started</p>
                      <button class = "card-resources_Button">Read</button>
                   </div>
                   <div class = "card-resources" data-tag = "Anxiety">
                      <div class = "card-resources_ImageContainer">
-                        <img src = "./uploads/ResourceImage/ThinkingTraps.png"/>
-                        <button class = "small" style= "background-image: url(./uploads/ResourceImage/Read.svg);"></button>
+                        <img alt = "thinking traps" src = "./uploads/ResourceImage/ThinkingTraps.png"/>
+                        <div class = "small">
+                           <img alt = "an image of an open book" class = "small_Image" src= "./uploads/ResourceImage/Read.svg"></img>
+                        </div>   
                      </div>
-                     <h4 class = "card-resources_Title">Thinking Traps</h4>
+                     <h2 class = "card-resources_Title">Thinking Traps</h2>
                      <p class = "card-resources_Description">This visual guide that demonstrates the different unhelpful thinking patterns we fall in to.</p>
                      <button class = "card-resources_Button">Read</button>
                   </div>
                   <div class = "card-resources" data-tag = "Wellbeing">
                      <div class = "card-resources_ImageContainer">
-                        <img src = "./uploads/ResourceImage/100ThingsToDo.png"/>
-                        <button class = "small" style= "background-image: url(./uploads/ResourceImage/Read.svg);"></button>
+                        <img alt ="an image of 100 things to do" src = "./uploads/ResourceImage/100ThingsToDo.png"/>
+                        <div class = "small">
+                           <img alt = "an image of an open book" class = "small_Image" src= "./uploads/ResourceImage/Read.svg"></img>
+                        </div>   
                      </div>
-                     <h4 class = "card-resources_Title">100 Things To Do</h4>
+                     <h2 class = "card-resources_Title">100 Things To Do</h2>
                      <p class = "card-resources_Description">Taking time to do things you find enjoyable is one way to look after your mental wellbeing. Here are 100 ideas to get you started.</p>
                      <button class = "card-resources_Button">Read</button>
                   </div>

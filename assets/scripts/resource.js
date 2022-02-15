@@ -21,7 +21,7 @@ function resourceOnload() {
   input = document.querySelector('#autoComplete');
   content = $('.card-resources');
   contentParagraph = document.querySelectorAll('div.card-resources > p');
-  contentTitle = document.querySelectorAll('div.card-resources > h4');
+  contentTitle = document.querySelectorAll('div.card-resources > h2');
   buttonWrapperButtons = document.querySelectorAll('#buttonWrapper > button');
   input.addEventListener('keyup', function (event) {
     var keyName = event.key;
@@ -63,17 +63,19 @@ function buttonPressed(buttonValue) {
     $('#autoComplete').keyup();
     buttonValue.setAttribute("buttonStatus", "notPressed");
   }
-  buttonWrapperHover(buttonValue);
+  // buttonWrapperHover(buttonValue);
 } //checks if input is zero or not
 //if it is, then show every content
 function inputZero(valueLength) {
   if(valueLength > 0)
   {
       $('.magnifyingGlass').attr('class','noGlass');
+      $('.magnifyingGlass').attr('aria-label','clear search');
   }
   else
   {
        $('.noGlass').attr('class','magnifyingGlass');
+       $('.magnifyingGlass').attr('aria-label','clear search');
   }
   if (valueLength < 3) {
     input.style.borderBottomLeftRadius = "25px";
@@ -162,7 +164,7 @@ function buttonChange(textSearch, buttonsPressed) {
   } 
   else {
     for (i = 0; i < buttonWrapperButtons.length; i++) {
-      buttonWrapperMouseExit(buttonWrapperButtons[i]);
+      buttonWrapperMouseExit(buttonWrapperButtons[i]); 
     }
   }
   console.log("buttonChange");
