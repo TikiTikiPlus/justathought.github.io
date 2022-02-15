@@ -23,6 +23,7 @@ function resourceOnload() {
   contentParagraph = document.querySelectorAll('div.card-resources > p');
   contentTitle = document.querySelectorAll('div.card-resources > h2');
   buttonWrapperButtons = document.querySelectorAll('#buttonWrapper > button');
+  cardResourcesButton = document.querySelectorAll('.card-resources_Button');
   input.addEventListener('keyup', function (event) {
     var keyName = event.key;
 
@@ -43,6 +44,10 @@ function resourceOnload() {
     $('.autoComplete_wrapper').css('border-radius','50px')
     $('#autoComplete').css('border-bottom-left-radius','25px');
   });
+  for(i=0; i< content.length; i++)
+  {
+    cardResourcesButton[i].setAttribute('aria-label', cardResourcesButton[i].textContent + " on " + contentTitle[i].textContent);
+  }
 }
 //whenever a list item is clicked in the results bar, check if the list item clicked is a
 //dataTag property or not

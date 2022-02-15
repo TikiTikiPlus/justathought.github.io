@@ -337,15 +337,13 @@ button {
   margin:auto;
   padding:auto;
   padding-right:1px;
-  /* margin-left: 13px; */
   margin-right:13px;
-  /* padding-right:20px; */
-  /* padding-right:5px;
-  margin-right: 5px; */
-  /* background-size: 55px; */
   cursor:pointer;
 }
-
+.noGlass :focus-visible
+{
+  border-color: 2px solid blue;
+}
 .column {
   display: block;
   width: auto;
@@ -555,14 +553,9 @@ makes it look quite ugly*/
      padding-left: auto;
      padding-right: auto;
   }
-  /* .card-resources_ImageContainer {
-     margin-bottom: 20px;
-  } */
   .card-resources {
      width: 90%;
      min-width: 90px;
-     padding-left: 5px;
-     padding-right: 5px;
      margin-bottom: 40px;
   }
   #buttonWrapper {

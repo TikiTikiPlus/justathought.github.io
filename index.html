@@ -396,8 +396,7 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
                         <li class="nav-anxiety"><a tabindex="0" href="/anxiety">Generalised Anxiety</a></li>
                         <li class="nav-depression"><a tabindex="0" href="/depression">Depression</a></li>
                         <li class="nav-covid19"><a tabindex="0" href="/covid19">Staying on Track</a></li>
-                        <li class="nav-mixed"><a tabindex="0" h
-                           ref="/mixed">Mixed Depression &amp; Anxiety</a></li>
+                        <li class="nav-mixed"><a tabindex="0" href="/mixed">Mixed Depression &amp; Anxiety</a></li>
                         <!-- <li class="nav-anxiety"><a tabindex="0" href="/anxiety">Generalised Anxiety</a></li>
                            <li class="nav-depression"><a tabindex="0" href="/depression">Depression</a></li>
                            <li class="nav-mixed"><a href="/mixed">Mixed Depression & Anxiety</a></li>
@@ -415,6 +414,7 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
             </nav>
          </div>
             <div class = "contentAndHeaderContainer">
+               <main>
                <div class = "headerContainer">
                    <div class = "container">
                      <div id = "header">
@@ -426,8 +426,8 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
                         <h1>The Resource Hub</h1>
                         <p>Stay on track of your mental wellbeing with these helpful resource guides.</p>
                         <div class="autoComplete_wrapper">
-                            <input id="autoComplete" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" onkeyup="buttonSearching(this.value); inputZero(this.value.length)">
-                            <img alt="search image" aria-role="button" aria-label = "" class="magnifyingGlass" onclick="clearAutoComplete(this)"></img>
+                            <input id="autoComplete" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" onkeyup="buttonSearching(this.value); inputZero(this.value.length);">
+                            <img alt="search image" aria-role="button" aria-label="" class="magnifyingGlass" onclick="clearAutoComplete(this)" tabindex="0"></img>
                         </div>
                         </div>
                      </div>
@@ -438,6 +438,7 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
                </div>
                   <img alt="" class = "header__squigglyHeader" src = "./uploads/ResourceImage/resourceBelow.png">
             </div>
+            </main>
             <div class = "container">
                <section aria-label="data tag quick search buttons">
                 <div id = "buttonWrapper">
