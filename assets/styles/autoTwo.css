@@ -560,10 +560,10 @@ button {
 {
   -ms-transform: translateY(5%);
 }
-/* #autoComplete
+#autoComplete
 {
   width:242px;
-} */
+}
   .autoComplete_Wrapper
   {
     min-width: 300px;
