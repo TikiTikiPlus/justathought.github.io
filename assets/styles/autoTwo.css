@@ -37,9 +37,10 @@ body {
 }
 .innerBorder
 {
-  width:270px;
+  width:249px;
   height: 1px;
   padding-bottom:27px;
+  padding-left:28px;
   /* margin: 0px 20px; */
   margin:auto;
   border-top: 1px solid #BEA9D2;
@@ -323,7 +324,7 @@ button {
   z-index: 600;
   margin-bottom: 0px;
   border:none;
-  min-width:242px;
+  width:247px;
 }
 .magnifyingGlass {
   content: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png);
@@ -367,7 +368,7 @@ button {
   background-color: white;
   border-radius: 50px;
   box-shadow: 0 8px 6px -6px rgb(0 0 0 / 15%);
-  min-width: 300px;
+  width: 305px;
   min-height:46.6px;
 }
 
@@ -574,7 +575,8 @@ button {
   }
   .innerBorder
   {
-    width:242px;
+    padding-left:28px;
+    width:245px;
   }
 }
 
