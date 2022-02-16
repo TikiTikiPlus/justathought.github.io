@@ -328,7 +328,6 @@ button {
   content: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png);
   width:58px;
 }
-
 .noGlass {
   content: url(./../../uploads/ResourceImage/xButtonFinal.png);
   width:45px;
@@ -477,7 +476,6 @@ button {
      -ms-grid-columns: 30% 40% 30%;
   }
 }
-
 @media screen and (max-width: 991px) {
   .card-resources {
      width: 50%;
@@ -567,10 +565,6 @@ button {
   #autoComplete
   {
     width:242px;
-  }
-  .magnifyingGlass
-  {
-    margin-right:0px;
   }
 }
 
