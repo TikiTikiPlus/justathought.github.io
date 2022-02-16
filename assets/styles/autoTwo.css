@@ -37,12 +37,13 @@ body {
 }
 .innerBorder
 {
-  width:84%;
+  width:270px;
   height: 1px;
-  padding-bottom:23px;
+  padding-bottom:27px;
   /* margin: 0px 20px; */
   margin:auto;
   border-top: 1px solid #BEA9D2;
+  padding:auto;
 }
 .no_result {
   margin: 0.3rem;
@@ -518,7 +519,7 @@ button {
      margin: auto;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 670px) {
   .card-resources {
      width: 100%;
   }
@@ -570,6 +571,10 @@ button {
   .autoComplete_wrapper
   {
     min-width:242px;
+  }
+  .innerBorder
+  {
+    width:242px;
   }
 }
 

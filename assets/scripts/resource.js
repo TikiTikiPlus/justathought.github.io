@@ -46,7 +46,7 @@ function resourceOnload() {
   });
   input.addEventListener('change', () => input.hasChanged = true);
   input.addEventListener('blur', () => {
-    document.getElementsByClassName('autoComplete_wrapper')[0].style.borderRadius='50px';
+    document.getElementsByClassName('autoComplete_Wrapper')[0].style.borderRadius='50px';
     document.getElementById('autoComplete').style.borderBottomLeftRadius = '25px';
   });
   for(i=0; i< content.length; i++)
@@ -97,9 +97,8 @@ function inputZero(valueLength) {
     input.style.borderBottomLeftRadius = "0px";
     document.getElementsByClassName('autoComplete_Wrapper')[0].style.borderBottomRightRadius = "0px"
     let wrapping = document.getElementsByClassName('autoComplete_Wrapper');
-    let boxWidth = wrapping[0].offsetWidth;
+    let boxWidth = wrapping.offsetWidth;
     $('#autoComplete_list_1').css("width",boxWidth);
-    document.getElementById('autoComplete_list_1').style.width = boxWidth;
   }
 } //deletes the value of autoComplete bar
 function clearAutoComplete(xButton) {
