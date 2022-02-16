@@ -546,8 +546,8 @@ button {
   .card-resources {
      width: 90%;
      min-width: 90px;
-     margin-bottom: 40px;
      margin:auto;
+     margin-bottom: 40px;
   }
   #buttonWrapper {
      flex-direction: column;
