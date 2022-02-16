@@ -366,7 +366,7 @@ button {
   background-color: white;
   border-radius: 50px;
   box-shadow: 0 8px 6px -6px rgb(0 0 0 / 15%);
-  /* min-width: 300px; */
+  min-width: 300px;
   min-height:46.6px;
 }
 
@@ -558,13 +558,17 @@ button {
 {
   -ms-transform: translateY(5%);
 }
+#autoComplete
+{
+  width:242px;
+}
+  .autoComplete_Wrapper
+  {
+    min-width: 300px;
+  } 
   .autoComplete_wrapper
   {
     min-width:242px;
-  }  
-  #autoComplete
-  {
-    width:242px;
   }
 }
 
