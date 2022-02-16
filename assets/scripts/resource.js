@@ -33,16 +33,22 @@ function resourceOnload() {
   });
   buttonsPressed = false;
   input.addEventListener('focus', () => {
-    if (input.value !== "") {
-      $('#autoComplete_list_1').removeAttr('hidden');
+    if (input.value.length > 2) {
+      document.getElementById('autoComplete_list_1').removeAttribute('hidden');
     } // Do your stuff
     $('#autoComplete').keyup();
   });
   input.addEventListener('change', () => input.hasChanged = true);
   input.addEventListener('blur', () => {
-    $('#autoComplete_list_1').attr('hidden', '""'); // Do your stuff
-    $('.autoComplete_wrapper').css('border-radius','50px')
-    $('#autoComplete').css('border-bottom-left-radius','25px');
+    document.getElementById('autoComplete_list_1').setAttribute('hidden', '""'); // Do your stuff
+    document.getElementsByClassName('autoComplete_wrapper')[0].style.borderRadius='50px';
+    document.getElementById('autoComplete').style.borderBottomLeftRadius = '25px';
+  });
+  document.getElementById('autoComplete').addEventListener('keydown', function(event) {
+    if (event.key == 'Tab') {
+      document.getElementById('autoComplete_list_1').removeAttribute('hidden');
+      document.getElementById("result_Item_0").focus();
+    }
   });
   for(i=0; i< content.length; i++)
   {
@@ -86,14 +92,15 @@ function inputZero(valueLength) {
     input.style.borderBottomLeftRadius = "25px";
     $('.card-resources').css('visibility', 'visible');
     $('.card-resources').css('display', 'block');
-    $('#autoComplete_list_1').attr('hidden', '""');
-    $(".autoComplete_wrapper").css("borderBottomRightRadius","50px");
+    document.getElementById('autoComplete_list_1').setAttribute('hidden','""');
+    document.getElementsByClassName('autoComplete_wrapper')[0].style.borderBottomRightRadius = "50px"
   } else {
     input.style.borderBottomLeftRadius = "0px";
-    $(".autoComplete_wrapper").css("borderBottomRightRadius","0px");
-    let wrapping = document.querySelector(".autoComplete_wrapper");
-    let boxWidth = wrapping.offsetWidth
+    document.getElementsByClassName('autoComplete_wrapper')[0].style.borderBottomRightRadius = "0px"
+    let wrapping = document.getElementsByClassName('autoComplete_wrapper');
+    let boxWidth = wrapping[0].offsetWidth;
     $('#autoComplete_list_1').css("width",boxWidth);
+    document.getElementById('autoComplete_list_1').style.width = boxWidth;
   }
 } //deletes the value of autoComplete bar
 function clearAutoComplete(xButton) {
@@ -117,7 +124,6 @@ function buttonWrapperHover(hoveredButton)
 }
 function buttonWrapperMouseExit(unHoverButton)
 {
-  console.log(unHoverButton.getAttribute("buttonStatus"));
   if(unHoverButton.getAttribute("buttonStatus")==="notPressed")
   {
     unHoverButton.style.color = '#c9467f';
@@ -172,6 +178,5 @@ function buttonChange(textSearch, buttonsPressed) {
       buttonWrapperMouseExit(buttonWrapperButtons[i]); 
     }
   }
-  console.log("buttonChange");
   input.focus();
 }

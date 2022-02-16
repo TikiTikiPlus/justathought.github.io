@@ -167,7 +167,6 @@
             JSONarray = JSON.stringify(arr);
             return JSON.parse(JSONarray);
       }
-      
    const resourceArray = manufactureArray(['Title', 'DataTag', 'Description'], content, titleContent, descriptions);
    const autoCompleteJS = new autoComplete({
           selector: "#autoComplete",
@@ -190,10 +189,16 @@ filter: (function (list) {
 return filteredResults;
 })
 }
-, resultsList: {
+,
+resultsList: {
+   noResults: true, 
+     maxResults: 5,
+     id:"autoComplete_list_1",
+     tabSelect:true,
+     position:'afterend',
         element: (function (list, data) {
            if(input.value.length > 2){
-               $('#autoComplete_list_1').removeAttr('hidden');
+               document.getElementById('autoComplete_list_1').removeAttribute('hidden');
                 var inner = document.createElement("div");
                 inner.setAttribute("class", "innerBorder");
                 var message = document.createElement("div");
@@ -242,7 +247,9 @@ return filteredResults;
                     };
                     x.setAttribute('onclick', 'listClicky(this);');
                     x.setAttribute('class', 'results');
-                    x.setAttribute('tabindex',0)
+                    x.setAttribute('tabindex',i);
+                    x.setAttribute('id','result_Item_'+i);
+                    x.onkeydown = null;
                     document.querySelector('#autoComplete_list_1').appendChild(x);
                 }
                 $('.card-resources')
@@ -253,7 +260,6 @@ return filteredResults;
                 try {
                     for (contentIndex = 0; contentIndex < content.length;) {
                         if (data.results[resultIndex].key == "DataTag") {
-                           //console.log(data.results[resultIndex].value.DataTag);
                            buttonChange(data.results[resultIndex].value.DataTag, true);
                            resultIndex++;
                         }
@@ -285,20 +291,16 @@ return filteredResults;
                 list.prepend(message);
                 message.prepend(inner);
         } 
-      else
-      {
-         $('#autoComplete_list_1').empty();
-      }
+     
       }
      )
-        , noResults: true
-    , }
+   }
     , resultItem: {
         highlight: {
             render: true
         }
-    }
-    , events: {
+    }, 
+    events: {
         input: {
             focus:(event)=>{
                autoCompleteJS.start(input.value);
@@ -323,24 +325,15 @@ return filteredResults;
                         content[i].style.display = "none";
                     }
                }
-               console.log("selection");
                auto.blur();
                auto.focus();
             })
         }
     }
-    , searchEngine: "strict"
-    , maxResults: 15
-    ,
+    , 
+    searchEngine: "strict",
 trigger: query => {
-  if (query.length < 3) {
-    $('.card-resources').css('visibility', 'visible');
-    $('.card-resources').css('display', 'block');
-    $('#autoComplete_list_1').attr('hidden', '""');
-
-  }
-
-  return query.replace(/ /g, "").length; // Returns "Boolean"
+     return query.length>2; // Returns "Boolean"
 }});
 autoCompleteJS.input.addEventListener("selection", function (event) {
   let autoCompleteBox = document.getElementById("autoComplete");
@@ -414,8 +407,9 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
             </nav>
          </div>
             <div class = "contentAndHeaderContainer">
-               <main>
+               <main id = "#main_content">
                <div class = "headerContainer">
+                  
                    <div class = "container">
                      <div id = "header">
                      <div class = "column" id = "header__imageLeft">
@@ -439,6 +433,7 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
                   <img alt="" class = "header__squigglyHeader" src = "./uploads/ResourceImage/resourceBelow.png">
             </div>
             </main>
+            <main>
             <div class = "container">
                <section aria-label="data tag quick search buttons">
                 <div id = "buttonWrapper">
@@ -447,6 +442,8 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
                   <button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonStatus = "notPressed">Wellbeing</button>
                 </div>
             </div>
+            </main>
+            <main>
             <div class = "container">
                <div class = "resource-grid">
                   <div class = "card-resources" data-tag = "Anxiety">
@@ -583,6 +580,7 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
                   </div>
                </div>
             </div>
+            </main>
          </div>
       </div>
       <div>

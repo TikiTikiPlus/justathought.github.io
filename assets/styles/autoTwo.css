@@ -239,11 +239,11 @@ button {
 }
 .card-resources .card-resources_Button:hover
 {
-  background-color: #091d76;
+  background-color: #4f5a92;
 }
 .card-resources .card-resources_Button:focus-visible
 {
-  background-color: #091d76;
+  background-color: #4f5a92;
 }
 .card-resources button {
   border-radius: 75px;
@@ -324,7 +324,6 @@ button {
   margin-bottom: 0px;
   border:none;
 }
-
 .magnifyingGlass {
   content: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png);
   width:58px;
@@ -356,13 +355,6 @@ button {
 #header__imageLeft {
   right: 0;
 }
-
-
-/*these are buttons because images have
-these weird black thing on their edges which
-makes it look quite ugly*/
-
-
 /*autoComplete stuff here*/
 
 .autoComplete_wrapper {
@@ -388,7 +380,6 @@ makes it look quite ugly*/
   height: 46.6px;
   font-weight: 500;
 }
-
 .autoComplete_wrapper>input::placeholder {
   /* color: #BEA9D2; */
   transition: all 0.3s ease;
@@ -416,7 +407,7 @@ makes it look quite ugly*/
   /* border-color: #cdcff8; */
   border-top: none;
   box-shadow: 0 8px 6px -6px rgb(0 0 0 / 15%);
-   padding-bottom:13px;
+  padding-bottom:13px;
 }
 .autoComplete_wrapper>ul>li {
   padding: 10px 35px;
@@ -575,7 +566,7 @@ makes it look quite ugly*/
   }  
   #autoComplete
   {
-    width:180px;
+    width:240px;
   }
 }
 
