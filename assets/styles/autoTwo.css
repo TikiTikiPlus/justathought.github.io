@@ -539,13 +539,14 @@ button {
      /* -ms-grid-column: auto; */
      position: relative;
      margin-bottom: 5%;
-     padding-left: auto;
+     padding-left: clamp(1%,5%,5%);
      padding-right: auto;
   }
   .card-resources {
      width: 90%;
      min-width: 90px;
      margin-bottom: 40px;
+     margin:auto;
   }
   #buttonWrapper {
      flex-direction: column;
