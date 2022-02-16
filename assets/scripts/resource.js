@@ -26,9 +26,15 @@ function resourceOnload() {
   cardResourcesButton = document.querySelectorAll('.card-resources_Button');
   input.addEventListener('keyup', function (event) {
     var keyName = event.key;
-
     if (keyName === 'Enter') {
-      input.blur();
+      if($('.results').length == 1)
+      {
+        $('.results')[0].click();
+      }
+      else
+      {
+        input.blur();
+      }
     }
   });
   buttonsPressed = false;
@@ -40,15 +46,8 @@ function resourceOnload() {
   });
   input.addEventListener('change', () => input.hasChanged = true);
   input.addEventListener('blur', () => {
-    document.getElementById('autoComplete_list_1').setAttribute('hidden', '""'); // Do your stuff
     document.getElementsByClassName('autoComplete_wrapper')[0].style.borderRadius='50px';
     document.getElementById('autoComplete').style.borderBottomLeftRadius = '25px';
-  });
-  document.getElementById('autoComplete').addEventListener('keydown', function(event) {
-    if (event.key == 'Tab') {
-      document.getElementById('autoComplete_list_1').removeAttribute('hidden');
-      document.getElementById("result_Item_0").focus();
-    }
   });
   for(i=0; i< content.length; i++)
   {
@@ -86,18 +85,18 @@ function inputZero(valueLength) {
   else
   {
        $('.noGlass').attr('class','magnifyingGlass');
-       $('.magnifyingGlass').attr('aria-label','clear search');
+       $('.noGlass').attr('aria-label','clear search');
   }
   if (valueLength < 3) {
     input.style.borderBottomLeftRadius = "25px";
     $('.card-resources').css('visibility', 'visible');
     $('.card-resources').css('display', 'block');
     document.getElementById('autoComplete_list_1').setAttribute('hidden','""');
-    document.getElementsByClassName('autoComplete_wrapper')[0].style.borderBottomRightRadius = "50px"
+    document.getElementsByClassName('autoComplete_Wrapper')[0].style.borderBottomRightRadius = "50px"
   } else {
     input.style.borderBottomLeftRadius = "0px";
-    document.getElementsByClassName('autoComplete_wrapper')[0].style.borderBottomRightRadius = "0px"
-    let wrapping = document.getElementsByClassName('autoComplete_wrapper');
+    document.getElementsByClassName('autoComplete_Wrapper')[0].style.borderBottomRightRadius = "0px"
+    let wrapping = document.getElementsByClassName('autoComplete_Wrapper');
     let boxWidth = wrapping[0].offsetWidth;
     $('#autoComplete_list_1').css("width",boxWidth);
     document.getElementById('autoComplete_list_1').style.width = boxWidth;

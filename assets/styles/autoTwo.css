@@ -356,8 +356,8 @@ button {
   right: 0;
 }
 /*autoComplete stuff here*/
-
-.autoComplete_wrapper {
+.autoComplete_Wrapper
+{
   display: inline-flex;
   position: relative;
   z-index: 600;
@@ -369,7 +369,6 @@ button {
   box-shadow: 0 8px 6px -6px rgb(0 0 0 / 15%);
   min-width: 300px;
   min-height:46.6px;
-  /* margin-right:auto; */
 }
 
 .autoComplete_wrapper>input {
@@ -389,6 +388,7 @@ button {
 {
   color: #6573b1;
 }
+
 .autoComplete_wrapper>ul {
   position: absolute;
   /* max-height: 226px; */
@@ -562,11 +562,15 @@ button {
 }
   .autoComplete_wrapper
   {
-    min-width:240px;
+    min-width:242px;
   }  
   #autoComplete
   {
-    width:240px;
+    width:242px;
+  }
+  .magnifyingGlass
+  {
+    margin-right:0px;
   }
 }
 

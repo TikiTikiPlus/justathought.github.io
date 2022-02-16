@@ -309,7 +309,6 @@ resultsList: {
                 var auto = document.getElementById("autoComplete");
                 var feedback = event.detail;
                 //alert(feedback.selection.value[feedback.selection.key]);
-                //autoCompleteJS.input.blur();
                 // Prepare User's Selected Value
                 var selection = feedback.selection.value;
                 // Render selected choice to selection div
@@ -407,9 +406,9 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
             </nav>
          </div>
             <div class = "contentAndHeaderContainer">
-               <main id = "#main_content">
-               <div class = "headerContainer">
-                  
+              
+               <div class = "headerContainer"> 
+                  <main id = "#main_content">
                    <div class = "container">
                      <div id = "header">
                      <div class = "column" id = "header__imageLeft">
@@ -419,7 +418,7 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
                         <div id = "middleColumnContent">
                         <h1>The Resource Hub</h1>
                         <p>Stay on track of your mental wellbeing with these helpful resource guides.</p>
-                        <div class="autoComplete_wrapper">
+                        <div class="autoComplete_Wrapper">
                             <input id="autoComplete" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" onkeyup="buttonSearching(this.value); inputZero(this.value.length);">
                             <img alt="search image" aria-role="button" aria-label="" class="magnifyingGlass" onclick="clearAutoComplete(this)" tabindex="0"></img>
                         </div>
@@ -428,12 +427,12 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
                      <div class = "column" id = "header__imageRight">
                         <img alt ="right side resource image" src = "./uploads/ResourceImage/RightResource.png">
                      </div>
-                  </div>
+                  </div> 
                </div>
+            </main>
                   <img alt="" class = "header__squigglyHeader" src = "./uploads/ResourceImage/resourceBelow.png">
             </div>
-            </main>
-            <main>
+            <main id = "#main_content">
             <div class = "container">
                <section aria-label="data tag quick search buttons">
                 <div id = "buttonWrapper">
@@ -443,7 +442,7 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
                 </div>
             </div>
             </main>
-            <main>
+            <main id = "#main_content">
             <div class = "container">
                <div class = "resource-grid">
                   <div class = "card-resources" data-tag = "Anxiety">
