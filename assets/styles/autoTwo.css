@@ -567,7 +567,7 @@ button {
 }
   .autoComplete_Wrapper
   {
-    min-width: 300px;
+    width: 300px;
   } 
   .autoComplete_wrapper
   {
