@@ -197,8 +197,8 @@ resultsList: {
      tabSelect:true,
      position:'afterend',
         element: (function (list, data) {
-           if(input.value.length > 2){
-               document.getElementById('autoComplete_list_1').removeAttribute('hidden');
+               document.getElementsByClassName('autoComplete_Wrapper')[0].style.borderBottomLeftRadius = "0px";
+               document.getElementsByClassName('autoComplete_Wrapper')[0].style.borderBottomRightRadius = "0px";
                 var inner = document.createElement("div");
                 inner.setAttribute("class", "innerBorder");
                 var message = document.createElement("div");
@@ -290,8 +290,7 @@ resultsList: {
                 }
                 list.prepend(message);
                 message.prepend(inner);
-        } 
-     
+
       }
      )
    }

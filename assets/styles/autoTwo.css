@@ -49,6 +49,8 @@ body {
 .no_result {
   margin: 0.3rem;
   padding: 0.3rem 0.5rem;
+  padding-top:0rem;
+  margin-top:0rem;
   list-style: none;
   text-align: left;
   font-size: 1rem;
@@ -141,14 +143,25 @@ button {
   background-color: white;
 }
 #buttonWrapper button:hover{
-  color: #86043D;
+  color: #86043D !important;
   border:3px solid #86043d;
 }
 #buttonWrapper button:focus-visible{
-  color: #86043D;
+  color: #86043D !important;
   border:3px solid #86043d;
 }
-
+#buttonWrapper button[buttonStatus="notPressed"]
+{
+  color :"#86043D";
+  background-color :"white";
+  border :"3px solid #86043D";
+}
+#buttonWrapper button[buttonStatus="pressed"]
+{
+  color :"white";
+  background-color:"#c9467f";
+  border :"3px solid #c9467f";
+}
 .resource-grid {
   position: relative;
   display: flex;
@@ -325,6 +338,11 @@ button {
   margin-bottom: 0px;
   border:none;
   width:247px;
+  height:46.6;
+}
+#autoComplete_list_1
+{
+  width: 305px;
 }
 .magnifyingGlass {
   content: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png);
@@ -366,7 +384,7 @@ button {
   flex-wrap: wrap;
   flex-direction: row;
   background-color: white;
-  border-radius: 50px;
+  border-radius: 25px;
   box-shadow: 0 8px 6px -6px rgb(0 0 0 / 15%);
   width: 305px;
   min-height:46.6px;
@@ -579,5 +597,9 @@ button {
     padding-left:29px;
     width:242px;
   }
+  #autoComplete_list_1
+{
+  width: 300px;
+}
 }
 
