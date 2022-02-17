@@ -419,7 +419,7 @@ autoCompleteJS.input.addEventListener("selection", function (event) {
                         <p>Stay on track of your mental wellbeing with these helpful resource guides.</p>
                         <div class="autoComplete_Wrapper">
                            <search>
-                            <input id="autoComplete" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" onkeyup="buttonSearching(this.value); inputZero(this.value.length);">
+                            <input id="autoComplete" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" onkeyup="buttonSearching(this.value); inputZero(this.value.length);" onkeydown="inputZero(this.value.length)">
                             </search>
                             <img alt="search image" aria-role="button" aria-label="" class="magnifyingGlass" onclick="clearAutoComplete(this)" tabindex="0"></img>
                         </div>

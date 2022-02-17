@@ -355,7 +355,7 @@ button {
   margin:auto;
   padding:auto;
   padding-right:1px;
-  margin-right:13px;
+  margin-left:2px;
   cursor:pointer;
 }
 .noGlass :focus-visible

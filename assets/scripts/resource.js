@@ -19,7 +19,7 @@ function blurContent() {
 //adds events to autocomplete searchbar
 function resourceOnload() {
   input = document.querySelector('#autoComplete');
-  content = $('.card-resources');
+  content = document.querySelectorAll('.card-resources');
   contentParagraph = document.querySelectorAll('div.card-resources > p');
   contentTitle = document.querySelectorAll('div.card-resources > h2');
   buttonWrapperButtons = document.querySelectorAll('#buttonWrapper > button');
@@ -31,7 +31,7 @@ function resourceOnload() {
       {
         $('.results')[0].click();
       }
-      else
+      if(keyName === 'Enter' && $('.results').length > 1)
       {
         input.blur();
       }
@@ -89,8 +89,7 @@ function inputZero(valueLength) {
   if (valueLength <= 2) {
     $('.card-resources').css('visibility', 'visible');
     $('.card-resources').css('display','block');
-    document.getElementsByClassName('autoComplete_Wrapper')[0].style.borderBottomLeftRadius = "25px";
-    document.getElementsByClassName('autoComplete_Wrapper')[0].style.borderBottomRightRadius = "25px";
+    document.getElementsByClassName('autoComplete_Wrapper')[0].style.borderRadius= "25px";
   }
 }
 //deletes the value of autoComplete bar
