@@ -1,5 +1,3 @@
-//start of code. probably name it lol
-//blurs and unblurs the whole body
 function blurContent() {
   if (document.getElementById("page_wrapper").className == "wrapper resources") {
     $(".nav-container").css('opacity', 1);
@@ -24,27 +22,30 @@ function resourceOnload() {
   contentTitle = document.querySelectorAll('div.card-resources > h2');
   buttonWrapperButtons = document.querySelectorAll('#buttonWrapper > button');
   cardResourcesButton = document.querySelectorAll('.card-resources_Button');
-  input.addEventListener('keyup', function (event) {
-    var keyName = event.key;
-    if (keyName === 'Enter'||keyName==='Tab') {
-      if($('.results').length == 1)
-      {
-        $('.results')[0].click();
-      }
-      if(keyName === 'Enter' && $('.results').length > 1)
-      {
-        input.blur();
-      }
+  
+input.addEventListener('keyup', function (event) {
+  var keyName = event.key;
+
+  if (keyName === 'Enter' || keyName === 'Tab') {
+    if ($('.results').length == 1) {
+      $('.results')[0].click();
     }
-  });
-  buttonsPressed = false;
-  input.addEventListener('focus', () => {
-    $('#autoComplete').keyup();
-  });
-  input.addEventListener('change', () => input.hasChanged = true);
-  input.addEventListener('blur', () => {
-    document.getElementsByClassName('autoComplete_Wrapper')[0].style.borderRadius='25px';
-  });
+
+    if (keyName === 'Enter' && $('.results').length > 1) {
+      input.blur();
+    }
+  }
+});
+buttonsPressed = false;
+input.addEventListener('focus', function () {
+  $('#autoComplete').keyup();
+});
+input.addEventListener('change', function () {
+  return input.hasChanged = true;
+});
+input.addEventListener('blur', function () {
+  document.getElementsByClassName('autoComplete_Wrapper')[0].style.borderRadius = '25px';
+});
   for(i=0; i< content.length; i++)
   {
     cardResourcesButton[i].setAttribute('aria-label', cardResourcesButton[i].textContent + " on " + contentTitle[i].textContent);
@@ -125,7 +126,7 @@ function buttonSearching(buttonText) {
 function buttonChange(textSearch, buttonsPressed) {
   if (buttonsPressed) {
     for (i = 0; i < content.length; i++) {
-      if (content[i].getAttribute('data-tag').toLowerCase().includes(textSearch.toLowerCase())) {
+      if (content[i].getAttribute('data-tag').toLowerCase().indexOf(textSearch.toLowerCase())>=0) {
         content[i].style.visibility = "visible";
         content[i].style.display = "block";
       } else {
@@ -140,6 +141,6 @@ function buttonChange(textSearch, buttonsPressed) {
         buttonWrapperButtons[i].setAttribute("buttonStatus", "pressed")
       }
     }
-  } 
-  input.focus();
-}
+    input.focus();
+  }
+} 

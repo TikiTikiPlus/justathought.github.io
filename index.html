@@ -124,7 +124,8 @@
 			// Loop for the number of objects you want to push to the array
 			for(var i = 0; i < content.length; i++) {
 				obj = {};
-				if(content[i].getAttribute('data-tag').includes(',')) {
+				if(content[i].getAttribute('data-tag').indexOf(',')>=0) 
+            {
 					myArray = content[i].getAttribute('data-tag').split(",");
 					for(myArrayIndex = 0; myArrayIndex < myArray; myArrayIndex++) {
 						for(var j = 0; j < props.length; j++) {
@@ -142,7 +143,9 @@
 							arr.push(obj);
 						}
 					}
-				} else { // Create the properties within a new object, and push it into the array
+				} 
+            else 
+            { // Create the properties within a new object, and push it into the array
 					for(var j = 0; j < props.length; j++) {
 						//1st entry here is the titles of the text
 						if(j == 0) {
@@ -287,9 +290,9 @@
 			},
 			events: {
 				input: {
-					focus: (event) => {
-						autoCompleteJS.start(input.value);
-					},
+					focus: (function (event) {
+                  autoCompleteJS.start(input.value);
+               }),
 					selection: (function(event) {
 						var auto = document.getElementById("autoComplete");
 						var feedback = event.detail;
@@ -315,9 +318,9 @@
 				}
 			},
 			searchEngine: "strict",
-			trigger: query => {
-				return query.length > 2; // Returns "Boolean"
-			}
+			trigger: (function (query) {
+            return query.length > 2; // Returns "Boolean"
+         })
 		});
 		autoCompleteJS.input.addEventListener("selection", function(event) {
 			let autoCompleteBox = document.getElementById("autoComplete");
@@ -394,14 +397,15 @@
 										<p>Stay on track of your mental wellbeing with these helpful resource guides.</p>
 										<div class="autoComplete_Wrapper">
 											<search>
-												<input id="autoComplete" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" onkeyup="buttonSearching(this.value); inputZero(this.value.length);" onkeydown="inputZero(this.value.length)"> </search> <img alt="search image" aria-role="button" aria-label="" class="magnifyingGlass" onclick="clearAutoComplete(this)" tabindex="0"></img>
+												<input id="autoComplete" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" onkeyup="buttonSearching(this.value); inputZero(this.value.length);" onkeydown="inputZero(this.value.length)">
+                                  </search> <img alt="search image" aria-role="button" aria-label="" class="magnifyingGlass" onclick="clearAutoComplete(this)" tabindex="0"/>
 										</div>
 									</div>
 								</div>
 								<div class="column" id="header__imageRight"> <img alt="" src="./uploads/ResourceImage/RightResource.png"> </div>
 							</div>
 						</div>
-					</main> <img alt="" class="header__squigglyHeader" src="./uploads/ResourceImage/resourceBelow.png"></img> 
+					</main> <img alt="" class="header__squigglyHeader" src="./uploads/ResourceImage/resourceBelow.png"/>
             </div>
 			</main>
 			<main id="#main_content">
@@ -412,6 +416,7 @@
 							<button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonStatus="notPressed">Depression</button>
 							<button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonStatus="notPressed">Wellbeing</button>
 						</div>
+               </section>
 				</div>
 			</main>
 			<main id="#main_content">
@@ -419,7 +424,7 @@
 					<div class="resource-grid">
 						<div class="card-resources" data-tag="Anxiety">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/WorryChart.png" />
-								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"></img>
+								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"/>
 								</div>
 							</div>
 							<h2 class="card-resources_Title">The Worry Chart</h2>
@@ -428,7 +433,7 @@
 						</div>
 						<div class="card-resources" data-tag="Wellbeing">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/StayingOnTrack.png" />
-								<div class="small"> <img class="small_Image" src="./uploads/ResourceImage/audio.svg"></img>
+								<div class="small"> <img class="small_Image" src="./uploads/ResourceImage/audio.svg"/>
 								</div>
 							</div>
 							<h2 class="card-resources_Title">Staying on Track audio course</h2>
@@ -437,7 +442,7 @@
 						</div>
 						<div class="card-resources" data-tag="Wellbeing,Anxiety">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/ImproveYourSleep.png" />
-								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"></img>
+								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"/>
 								</div>
 							</div>
 							<h2 class="card-resources_Title">10 Tips to Improve Your Sleep</h2>
@@ -446,7 +451,7 @@
 						</div>
 						<div class="card-resources" data-tag="Wellbeing">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/SeeingThingsClearly.png" />
-								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"></img>
+								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"/>
 								</div>
 							</div>
 							<h2 class="card-resources_Title">Seeing Things Clearly resource</h2>
@@ -455,7 +460,7 @@
 						</div>
 						<div class="card-resources" data-tag="Wellbeing">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/ProblemSolvingGuide.png" />
-								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/video.svg"></img>
+								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/video.svg"/>
 								</div>
 							</div>
 							<h2 class="card-resources_Title">Problem Solving Guide</h2>
@@ -464,7 +469,7 @@
 						</div>
 						<div class="card-resources" data-tag="Anxiety">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/BreathingExercise.png" />
-								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"></img>
+								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"/>
 								</div>
 							</div>
 							<h2 class="card-resources_Title">3-Minute Breathing Exercise</h2>
@@ -473,7 +478,7 @@
 						</div>
 						<div class="card-resources" data-tag="Anxiety">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/SupportSomeone.png" />
-								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"></img>
+								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"/>
 								</div>
 							</div>
 							<h2 class="card-resources_Title">10 Way to Support Someone</h2>
@@ -482,7 +487,7 @@
 						</div>
 						<div class="card-resources" data-tag="Depression">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/WhatMattersMost.png" />
-								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"></img>
+								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"/>
 								</div>
 							</div>
 							<h2 class="card-resources_Title">What Matters Most</h2>
@@ -491,7 +496,7 @@
 						</div>
 						<div class="card-resources" data-tag="Wellbeing">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/PositiveHunt.png" />
-								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/write.svg"></img>
+								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/write.svg"/>
 								</div>
 							</div>
 							<h2 class="card-resources_Title">Positive Hunt Worksheet</h2>
@@ -500,7 +505,7 @@
 						</div>
 						<div class="card-resources" data-tag="Wellbeing">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/AboutSelfEsteem.png" />
-								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"></img>
+								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"/>
 								</div>
 							</div>
 							<h2 class="card-resources_Title">About Self Esteem</h2>
@@ -509,7 +514,7 @@
 						</div>
 						<div class="card-resources" data-tag="Anxiety">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/ThinkingTraps.png" />
-								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"></img>
+								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"/>
 								</div>
 							</div>
 							<h2 class="card-resources_Title">Thinking Traps</h2>
@@ -518,7 +523,7 @@
 						</div>
 						<div class="card-resources" data-tag="Wellbeing">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/100ThingsToDo.png" />
-								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"></img>
+								<div class="small"> <img alt="" class="small_Image" src="./uploads/ResourceImage/Read.svg"/>
 								</div>
 							</div>
 							<h2 class="card-resources_Title">100 Things To Do</h2>
