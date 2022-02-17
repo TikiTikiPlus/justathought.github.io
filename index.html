@@ -283,14 +283,13 @@ resultsList: {
                     // Add message text content
                     message.innerHTML = "<span>Found no results for \"" + data.query + "\"</span>";
                     // Append message element to the results list
-                    //list.prepend(message);
                     for (i = 0; i < content.length; i++) {
                         content[i].style.visibility = "hidden";
                     }
                 }
+                list.setAttribute('aria-label','result list');
                 list.prepend(message);
                 message.prepend(inner);
-
       }
      )
    }
