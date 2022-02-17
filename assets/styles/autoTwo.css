@@ -545,10 +545,11 @@ button {
      padding-right: auto;
   }
   .card-resources {
-     width: 90%;
+     width: 85%;
      min-width: 90px;
      margin:auto;
      margin-bottom: 40px;
+     max-width:none;
   }
   #buttonWrapper {
      flex-direction: column;
