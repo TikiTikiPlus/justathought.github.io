@@ -112,6 +112,7 @@ function buttonSearching(buttonText) {
       buttonWrapperButtons[j].style.color = 'white';
       buttonWrapperButtons[j].style.backgroundColor = '#c9467f';
       a = j;
+      input.value = buttonText;
       buttonsPressed = true;
     } 
     else {
@@ -120,11 +121,11 @@ function buttonSearching(buttonText) {
       buttonWrapperButtons[j].style.backgroundColor = 'white';
     }
   }
-  buttonChange(buttonText, buttonsPressed);
+  buttonChange(buttonText,buttonsPressed)
 } 
 //shows which button to show when buttons are pressed
-function buttonChange(textSearch, buttonsPressed) {
-  if (buttonsPressed) {
+function buttonChange(textSearch, buttonPressed) {
+  if (buttonPressed) {
     for (i = 0; i < content.length; i++) {
       if (content[i].getAttribute('data-tag').toLowerCase().indexOf(textSearch.toLowerCase())>=0) {
         content[i].style.visibility = "visible";

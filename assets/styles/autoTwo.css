@@ -345,11 +345,11 @@ button {
   width: 305px;
 }
 .magnifyingGlass {
-  content: url(./../../uploads/ResourceImage/magnifyingGlassCopy2.png);
+  content: url("./../../uploads/ResourceImage/magnifyingGlassCopy2.png");
   width:58px;
 }
 .noGlass {
-  content: url(./../../uploads/ResourceImage/xButtonFinal.png);
+  content: url("./../../uploads/ResourceImage/xButtonFinal.png");
   width:45px;
   height:auto;
   margin:auto;
