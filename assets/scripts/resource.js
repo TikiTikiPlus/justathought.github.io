@@ -58,7 +58,7 @@ function resourceOnload() {
 //dataTag property or not
 function listClicky(thing) {
   buttonPressed(thing);
-} 
+}
 //starts when the buttons are pressed
 //searches if texts in the button is the same as the value of input/buttons
 //and shows the cards up
