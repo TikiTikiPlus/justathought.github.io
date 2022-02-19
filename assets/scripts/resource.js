@@ -81,11 +81,13 @@ function inputZero(valueLength) {
   {
     $('.magnifyingGlass').attr('class','noGlass');
     $('.noGlass').attr('aria-label','clear search');
+    $('.noGlass').attr('aria-role','button');
   }
   else
   { 
-       $('.noGlass').attr('class','magnifyingGlass');
-       $('.magnifyingGlass').attr('aria-label','search icon');
+    $('.noGlass').attr('class','magnifyingGlass');
+    $('.magnifyingGlass').removeAttr("aria-label");
+    $('.magnifyingGlass').removeAttr("aria-role");
   }
   if (valueLength <= 2) {
     $('.card-resources').css('visibility', 'visible');
@@ -108,7 +110,7 @@ function buttonSearching(buttonText) {
   var a = 0;
   for (j = 0; j < buttonWrapperButtons.length; j++) {
     if (buttonWrapperButtons[j].textContent.toLowerCase() === buttonText.toLowerCase()) {
-      buttonWrapperButtons[j].setAttribute('buttonStatus', 'pressed');
+      buttonWrapperButtons[j].setAttribute('buttonstatus', 'pressed');
       buttonWrapperButtons[j].style.color = 'white';
       buttonWrapperButtons[j].style.backgroundColor = '#c9467f';
       a = j;
@@ -116,7 +118,7 @@ function buttonSearching(buttonText) {
       buttonsPressed = true;
     } 
     else {
-      buttonWrapperButtons[j].setAttribute('buttonStatus', 'notPressed');
+      buttonWrapperButtons[j].setAttribute('buttonstatus', 'notPressed');
       buttonWrapperButtons[j].style.color = '#c9467f';
       buttonWrapperButtons[j].style.backgroundColor = 'white';
     }

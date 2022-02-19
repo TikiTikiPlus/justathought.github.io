@@ -150,18 +150,6 @@ button {
   color: #86043D !important;
   border:3px solid #86043d;
 }
-#buttonWrapper button[buttonStatus="notPressed"]
-{
-  color :"#86043D";
-  background-color :"white";
-  border :"3px solid #86043D";
-}
-#buttonWrapper button[buttonStatus="pressed"]
-{
-  color :"white";
-  background-color:"#c9467f";
-  border :"3px solid #c9467f";
-}
 .resource-grid {
   position: relative;
   display: flex;
