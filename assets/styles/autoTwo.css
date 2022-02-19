@@ -139,7 +139,7 @@ button {
 }
 #buttonWrapper button {
   margin: 0px 3px !important;
-  color: #c9467f !important ;
+  color: #c9467f;
   background-color: white;
 }
 #buttonWrapper button:hover{
