@@ -141,7 +141,7 @@ function buttonChange(textSearch, buttonPressed) {
     {
       if(buttonWrapperButtons[i].textContent.toLowerCase()==textSearch.toLowerCase())
       {
-        buttonWrapperButtons[i].setAttribute("buttonStatus", "pressed")
+        buttonWrapperButtons[i].setAttribute("buttonStatus", "pressed");
       }
     }
     input.focus();
