@@ -118,53 +118,54 @@
 		var descriptions = document.querySelectorAll("div.card-resources p");
 		var JSONArray;
 
-		function manufactureArray(props, content, titleContent, description) {
-			var arr = [];
-			var obj;
-			// Loop for the number of objects you want to push to the array
-			for(var i = 0; i < content.length; i++) {
-				obj = {};
-				if(content[i].getAttribute('data-tag').indexOf(',')>=0) 
-            {
-					myArray = content[i].getAttribute('data-tag').split(",");
-					for(myArrayIndex = 0; myArrayIndex < myArray; myArrayIndex++) {
-						for(var j = 0; j < props.length; j++) {
-							//1st entry here is the titles of the text
-							if(j == 0) {
-								obj[props[j]] = titleContent[i].textContent;
-							}
-							//2nd entry is the data tags
-							if(j == 1) {
-								obj[props[j]] = myArray[myArrayIndex];
-							}
-							if(j == 2) {
-								obj[props[j]] = description[i].textContent;
-							}
-							arr.push(obj);
-						}
-					}
-				} 
-            else 
-            { // Create the properties within a new object, and push it into the array
-					for(var j = 0; j < props.length; j++) {
-						//1st entry here is the titles of the text
-						if(j == 0) {
-							obj[props[j]] = titleContent[i].textContent;
-						}
-						//2nd entry is the data tags
-						if(j == 1) {
-							obj[props[j]] = content[i].getAttribute('data-tag');
-						}
-						if(j == 2) {
-							obj[props[j]] = description[i].textContent;
-						}
-					}
-					arr.push(obj);
-				}
-			}
-			JSONarray = JSON.stringify(arr);
-			return JSON.parse(JSONarray);
-		}
+	function manufactureArray(props, content, titleContent, description) {
+    var arr = [];
+    var obj;
+    // Loop for the number of objects you want to push to the array
+    for (var i = 0; i < content.length; i++) {
+        obj = {};
+        if (content[i].getAttribute('data-tag').indexOf(',') >= 0) {
+            myArray = content[i].getAttribute('data-tag').split(",");
+			console.log(myArray.length);
+            for (myArrayIndex = 0; myArrayIndex < myArray.length; myArrayIndex++) {
+				console.log("test");
+                for (var j = 0; j < props.length; j++) {
+                    //1st entry here is the titles of the text
+
+                    if (j == 0) {
+                        obj[props[j]] = titleContent[i].textContent;
+
+                    }
+                    //2nd entry is the data tags
+                    if (j == 1) {
+                        obj[props[j]] = myArray[myArrayIndex];
+                    }
+                    if (j == 2) {
+                        obj[props[j]] = description[i].textContent;
+                    }
+                }
+                arr.push(obj);
+            }
+        } else { // Create the properties within a new object, and push it into the array
+            for (var j = 0; j < props.length; j++) {
+                //1st entry here is the titles of the text
+                if (j == 0) {
+                    obj[props[j]] = titleContent[i].textContent;
+                }
+                //2nd entry is the data tags
+                if (j == 1) {
+                    obj[props[j]] = content[i].getAttribute('data-tag');
+                }
+                if (j == 2) {
+                    obj[props[j]] = description[i].textContent;
+                }
+            }
+            arr.push(obj);
+        }
+    }
+    JSONarray = JSON.stringify(arr);
+    return JSON.parse(JSONarray);
+	}
 		const resourceArray = manufactureArray(['Title', 'DataTag', 'Description'], content, titleContent, descriptions);
 		const autoCompleteJS = new autoComplete({
 			selector: "#autoComplete",
