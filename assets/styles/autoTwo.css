@@ -131,6 +131,7 @@ button {
   color: #4E4B6D;
 }
 #buttonWrapper {
+  margin-top: 5px;
   position: relative;
   align-items: center;
   justify-content: center;
