@@ -357,7 +357,7 @@
 		</header>
 		<div class="nav-container">
 			<nav>
-				<a role="button" class="menu-trigger" id="menu_trigger" tabindex="0" type="button" aria-label="Menu" aria-controls="menu" onclick="blurContent()"> <span class="menu-icon"></span> </a>
+				<a role="button" class="menu-trigger" id="menu_trigger" tabindex="0" type="button" aria-label="Menu" aria-controls="menu" onclick="blurContent()"><span class="menu-icon"></span></a>
 				<ul id="menu" class="navigation">
 					<li class="nav-login"> <a href="/login" data-event="ev" data-category="Navigation" data-action="Button" data-label="Login">Login</a> <a class="nav-signup" href="/signup" data-event="ev" data-category="Navigation" data-action="Button" data-label="Sign up">Sign up</a> </li>
 					<li class="nav-home"><a href="/">Home</a></li>
@@ -394,10 +394,10 @@
 									<div id="middleColumnContent">
 										<h1>The Resource Hub</h1>
 										<p>Stay on track of your mental wellbeing with these helpful resource guides.</p>
-										<div class="autoComplete_Wrapper">
-											<search>
+										<search><div class="autoComplete_Wrapper">
 												<input id="autoComplete" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" onkeyup="buttonSearching(this.value); inputZero(this.value.length);" onkeydown="inputZero(this.value.length)">
-                                  </search> <img alt="search image" class="magnifyingGlass" onclick="clearAutoComplete(this)" tabindex="0"/>
+                                  <img alt="search image" class="magnifyingGlass" onclick="clearAutoComplete(this)" tabindex="0"/> 
+										</search>
 										</div>
 									</div>
 								</div>
@@ -408,9 +408,9 @@
 				<div class="container">
 					<section aria-label="data tag quick search buttons">
 						<div id="buttonWrapper">
-							<button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonstatus="notPressed">Anxiety</button>
-							<button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonstatus="notPressed">Depression</button>
-							<button class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonstatus="notPressed">Wellbeing</button>
+							<button type="Button" class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonstatus="notPressed">Anxiety</button>
+							<button type="Button" class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonstatus="notPressed">Depression</button>
+							<button type="Button" class="buttonWrapper_Button" onclick="buttonPressed(this)" buttonstatus="notPressed">Wellbeing</button>
 						</div>
                </section>
 				</div>
@@ -427,7 +427,7 @@
 						</div>
 						<div class="card-resources" data-tag="Wellbeing">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/StayingOnTrack.png" />
-								<div class="small"> <img alt = ""; class="small_Image" src="./uploads/ResourceImage/audio.svg"/>
+								<div class="small"> <img alt = "" class="small_Image" src="./uploads/ResourceImage/audio.svg"/>
 								</div>
 							</div>
 							<h2 class="card-resources_Title">Staying on Track audio course</h2>
@@ -486,7 +486,7 @@
 							</div>
 							<h2 class="card-resources_Title">What Matters Most</h2>
 							<p class="card-resources_Description">this resource helps you find ways to stay connected to the things that matter most to you during this difficult time.</p>
-							<button alt="" class="card-resources_Button">Read</button>
+							<button class="card-resources_Button">Read</button>
 						</div>
 						<div class="card-resources" data-tag="Wellbeing">
 							<div class="card-resources_ImageContainer"> <img alt="" src="./uploads/ResourceImage/PositiveHunt.png" />
