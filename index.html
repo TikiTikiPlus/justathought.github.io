@@ -126,9 +126,7 @@
         obj = {};
         if (content[i].getAttribute('data-tag').indexOf(',') >= 0) {
             myArray = content[i].getAttribute('data-tag').split(",");
-			console.log(myArray.length);
             for (myArrayIndex = 0; myArrayIndex < myArray.length; myArrayIndex++) {
-				console.log("test");
                 for (var j = 0; j < props.length; j++) {
                     //1st entry here is the titles of the text
 

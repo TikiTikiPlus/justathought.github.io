@@ -104,7 +104,7 @@ h4::selection {
   color: #64ceaa;
 }
 
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .selection {
      margin-top: 15vh;
   }
@@ -154,7 +154,8 @@ button {
 .resource-grid {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex-flow: row wrap;
   margin: auto;
   padding-top: 0px;
   left: 0%;
@@ -263,7 +264,7 @@ button {
 
 #header {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   position: relative;
   grid-template-columns: 30% 40% 30%;
   -ms-grid-columns: 30% 40% 30%;
@@ -288,6 +289,10 @@ button {
 #middleColumnContent
 {
   -ms-transform: translateY(25%);
+}
+#middleColumnContent > h1
+{
+  font-size: 1rem;
 }
 #middleColumnContent > p
 {
@@ -474,7 +479,7 @@ button {
 .autoComplete_wrapper>ul>li[aria-selected="true"] {
   background-color: rgba(123, 123, 123, 0.1);
 }
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .autoComplete_wrapper>input {
      width: 18rem;
   }
