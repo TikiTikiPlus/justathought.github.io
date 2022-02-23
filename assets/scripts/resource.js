@@ -22,7 +22,6 @@ function resourceOnload() {
   contentTitle = document.querySelectorAll('div.card-resources > h2');
   buttonWrapperButtons = document.querySelectorAll('#buttonWrapper > button');
   cardResourcesButton = document.querySelectorAll('.card-resources_Button');
-  
 input.addEventListener('keyup', function (event) {
   var keyName = event.key;
   if (keyName === 'Enter' || keyName === 'Tab') {
@@ -52,11 +51,7 @@ input.addEventListener('blur', function () {
   {
     buttonWrapperButtons[buttonIndex].setAttribute('aria-label','quick search '+buttonWrapperButtons[buttonIndex].textContent);
   }
-}
-//whenever a list item is clicked in the results bar, check if the list item clicked is a
-//dataTag property or not
-function listClicky(thing) {
-  buttonPressed(thing);
+  centeredCard(content.length);
 }
 //starts when the buttons are pressed
 //searches if texts in the button is the same as the value of input/buttons
@@ -66,11 +61,12 @@ function buttonPressed(buttonValue) {
     input.value = buttonValue.textContent;
     buttonsPressed = true;
     $('#autoComplete').keyup();
-  } else {
+  } 
+  else {
     input.value = "";
     buttonsPressed = false;
-    $('#autoComplete').keyup();
     buttonValue.setAttribute("buttonStatus", "notPressed");
+    $('#autoComplete').keyup();
   }
 } //checks if input is zero or not
 //if it is, then show every content
@@ -82,7 +78,7 @@ function inputZero(valueLength) {
     $('.noGlass').attr('aria-role','button');
   }
   else
-  { 
+  {
     $('.noGlass').attr('class','magnifyingGlass');
     $('.magnifyingGlass').removeAttr("aria-label");
     $('.magnifyingGlass').removeAttr("aria-role");
@@ -97,7 +93,11 @@ function inputZero(valueLength) {
 function clearAutoComplete(xButton) {
     if(xButton.className=='noGlass')
     {
-        document.querySelector('#autoComplete').value = ""; 
+        document.querySelector('#autoComplete').value = "";
+        $('.card-resources').css('marginLeft','0px');
+        $('.card-resources').css('marginLeft','auto');
+        $('.card-resources').css('marginRight','0px');
+        $('.card-resources').css('marginLeft','auto');
         $('#autoComplete').keyup();
         input.blur();
         input.focus();
@@ -121,16 +121,19 @@ function buttonSearching(buttonText) {
       buttonWrapperButtons[j].style.backgroundColor = 'white';
     }
   }
-  buttonChange(buttonText,buttonsPressed)
+  buttonChange(buttonText,buttonsPressed);
 } 
-//shows which button to show when buttons are pressed
+//shows which button lights up and also shows the card resources relating to the button
 function buttonChange(textSearch, buttonPressed) {
+  let visibleCardNumber = 0;
   if (buttonPressed) {
     for (i = 0; i < content.length; i++) {
       if (content[i].getAttribute('data-tag').toLowerCase().indexOf(textSearch.toLowerCase())>=0) {
         content[i].style.visibility = "visible";
         content[i].style.display = "block";
-      } else {
+        visibleCardNumber++;
+      } 
+      else {
         content[i].style.visibility = "hidden";
         content[i].style.display = "none";
       }
@@ -145,3 +148,47 @@ function buttonChange(textSearch, buttonPressed) {
     input.focus();
   }
 } 
+function centeredCard(visibleCardCount)
+{
+  let visibleLast = false;
+  let windowWidth = window.innerWidth;
+    $(".card-resources").css("marginLeft","0px");
+    $(".card-resources").css("marginLeft","auto");
+    $(".card-resources").css("marginRight","0px");
+    $(".card-resources").css("marginRight","auto");
+  if(visibleCardCount%3 == 2)
+  {
+    for(let cardIndex = content.length-1; cardIndex > 0; cardIndex--)
+    {
+      if(content[cardIndex].style.visibility == "visible" && visibleLast==false)
+      {
+
+        if(windowWidth>991)
+        {
+          content[cardIndex].style.marginRight="160px";
+          visibleLast = true;
+        }
+        else
+        {
+          content[cardIndex].style.marginRight="0px";
+          content[cardIndex].style.marginRight="auto";
+          visibleLast = true;
+        }
+      }
+      else if(content[cardIndex].style.visibility == "visible" && visibleLast == true)
+      {
+        if(windowWidth>991)
+        {
+          content[cardIndex].style.marginLeft="160px";
+          return;
+        }
+        else
+        {
+          content[cardIndex].style.marginLeft="0px";
+          content[cardIndex].style.marginLeft="auto";
+          return;
+        }
+      }
+    }
+  }
+}

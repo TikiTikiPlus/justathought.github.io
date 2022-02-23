@@ -187,7 +187,6 @@
 			},
 			resultsList: {
 				noResults: true,
-				maxResults: 5,
 				id: "autoComplete_list_1",
 				tabSelect: true,
 				position: 'afterend',
@@ -237,34 +236,60 @@
 						x.onclick = function() {
 							$('#autoComplete').value = this.textContent;
 						};
-						x.setAttribute('onclick', 'listClicky(this);');
+						x.setAttribute('onclick', 'buttonPressed(this);');
 						x.setAttribute('class', 'results');
 						x.setAttribute('tabindex', 0);
 						x.setAttribute('id', 'result_Item_' + i);
 						x.onkeydown = null;
 						document.querySelector('#autoComplete_list_1').appendChild(x);
 					}
+					$('.card-resources').css("marginRight", "0px");
+					$('.card-resources').css("marginRight", "auto");
+					$('.card-resources').css("marginLeft", "0px");
+					$('.card-resources').css("marginLeft", "auto");
 					$('.card-resources').css("display", "none");
-					$('.card-resources').css("visibility", "hidden");
-					var resultIndex = 0;
+					$('.card-resources').css("visibility", "hidden");	
 					try {
+						var resultIndex = 0;
+						var visibleCardCount=0;
 						for(contentIndex = 0; contentIndex < content.length;) {
+							if(resultIndex<data.results.length)
+							{
 							if(data.results[resultIndex].key == "DataTag") {
 								buttonChange(data.results[resultIndex].value.DataTag, true);
 								resultIndex++;
 							}
-							if(titleContent[contentIndex].textContent == data.results[resultIndex].value.Title) {
+							else if(titleContent[contentIndex].textContent == data.results[resultIndex].value.Title) {
 								content[contentIndex].style.display = "block";
 								content[contentIndex].style.visibility = "visible";
 								resultIndex++;
 							}
+							}
 							contentIndex++;
 						}
+						//incase there is more than 5 results
 						while(data.results.length > 5) {
 							data.results.pop();
 						}
-						input.focus();
-					} catch(e) {}
+						for(contentIndex = 0; contentIndex<content.length; contentIndex++)
+						{
+							if(content[contentIndex].style.visibility == "visible")
+							{
+								visibleCardCount++;
+							}
+						}
+						centeredCard(visibleCardCount);
+						$(window).resize(function()
+						{
+							if(input.value.length < 3)
+							{
+								visibleCardCount = content.length;
+							}
+							centeredCard(visibleCardCount);
+						});
+					} catch(e) {
+						console.log(e);
+					}
 					message.innerHTML = "Displaying <strong>" + data.results.length + "</strong> out of <strong>" + data.matches.length + "</strong> results";
 					if(!data.results.length) {
 						// Create "No Results" message element
@@ -290,12 +315,16 @@
 			events: {
 				input: {
 					focus: (function (event) {
-                  autoCompleteJS.start(input.value);
-               }),
+                  	autoCompleteJS.start(input.value);
+               		}),
+					   blur:(function (event)
+					   {
+						autoCompleteJS.close();
+					   }
+					),
 					selection: (function(event) {
 						var auto = document.getElementById("autoComplete");
 						var feedback = event.detail;
-						//alert(feedback.selection.value[feedback.selection.key]);
 						// Prepare User's Selected Value
 						var selection = feedback.selection.value;
 						// Render selected choice to selection div
@@ -324,7 +353,7 @@
 		autoCompleteJS.input.addEventListener("selection", function(event) {
 			let autoCompleteBox = document.getElementById("autoComplete");
 			autoCompleteJS.start(autoCompleteBox.value);
-			input.focus();
+			//document.getElementById("autoComplete_list_1").removeAttribute("hidden");
 		});
 	}
 	</script>

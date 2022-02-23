@@ -269,8 +269,9 @@ button {
   grid-template-columns: 30% 40% 30%;
   -ms-grid-columns: 30% 40% 30%;
   width: 100%;
-  height: auto;
+  height: auto; 
   z-index: 2;
+  white-space: nowrap;
 }
 
 .headerContainer {
@@ -489,7 +490,7 @@ button {
 }
 @media screen and (max-width: 991px) {
   .card-resources {
-     width: 50%;
+    width: 50%;
   }
   #header__imageLeft img {
      padding: 0px;
