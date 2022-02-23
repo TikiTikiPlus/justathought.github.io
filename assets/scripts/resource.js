@@ -35,8 +35,6 @@ input.addEventListener('keyup', function (event) {
 });
 buttonsPressed = false;
 input.addEventListener('focus', function () {
-  console.log("focus");
-  console.log("event input focus");
   $('#autoComplete').keyup();
 });
 input.addEventListener('change', function () {
@@ -100,9 +98,8 @@ function clearAutoComplete(xButton) {
         $('.card-resources').css('marginLeft','auto');
         $('.card-resources').css('marginRight','0px');
         $('.card-resources').css('marginLeft','auto');
-        $('#autoComplete').keyup();
+        //$('#autoComplete').keyup();
         input.blur();
-        console.log("autoComplete focus")
         input.focus();
     }
 }
@@ -148,8 +145,6 @@ function buttonChange(textSearch, buttonPressed) {
         buttonWrapperButtons[i].setAttribute("buttonStatus", "pressed");
       }
     }
-    console.log("buttonChange focus");
-    input.focus();
   }
 } 
 function centeredCard(visibleCardCount)
