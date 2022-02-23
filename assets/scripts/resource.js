@@ -98,7 +98,6 @@ function clearAutoComplete(xButton) {
         $('.card-resources').css('marginLeft','auto');
         $('.card-resources').css('marginRight','0px');
         $('.card-resources').css('marginLeft','auto');
-        //$('#autoComplete').keyup();
         input.blur();
         input.focus();
     }
