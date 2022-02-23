@@ -136,6 +136,7 @@ function buttonChange(textSearch, buttonPressed) {
         content[i].style.visibility = "hidden";
         content[i].style.display = "none";
       }
+      
     }
     for (i = 0; i < buttonWrapperButtons.length; i++)
     {
@@ -144,6 +145,7 @@ function buttonChange(textSearch, buttonPressed) {
         buttonWrapperButtons[i].setAttribute("buttonStatus", "pressed");
       }
     }
+    centeredCard(visibleCardNumber);
   }
 } 
 function centeredCard(visibleCardCount)
