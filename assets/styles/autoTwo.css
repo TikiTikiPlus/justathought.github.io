@@ -271,7 +271,6 @@ button {
   width: 100%;
   height: auto; 
   z-index: 2;
-  white-space: nowrap;
 }
 
 .headerContainer {
@@ -418,7 +417,7 @@ button {
   /* border-color: #cdcff8; */
   border-top: none;
   box-shadow: 0 8px 6px -6px rgb(0 0 0 / 15%);
-  padding-bottom:13px;
+  padding-bottom:18px;
 }
 .autoComplete_wrapper>ul>li {
   padding: 10px 35px;
