@@ -315,6 +315,7 @@
 			events: {
 				input: {
 					focus: (function (event) {
+					console.log("focus");
                   	autoCompleteJS.start(input.value);
                		}),
 					   blur:(function (event)
@@ -340,8 +341,10 @@
 								content[i].style.display = "none";
 							}
 						}
+						console.log("hello");
 						auto.blur();
 						auto.focus();
+
 					})
 				}
 			},
@@ -351,8 +354,15 @@
          })
 		});
 		autoCompleteJS.input.addEventListener("selection", function(event) {
-			let autoCompleteBox = document.getElementById("autoComplete");
-			autoCompleteJS.start(autoCompleteBox.value);
+			// let autoCompleteBox = document.getElementById("autoComplete");
+			// autoCompleteJS.start(autoCompleteBox.value);
+			
+			// input.focus();
+			console.log("selection");
+			setTimeout(
+				function()
+				{input.blur()
+				},0);
 			//document.getElementById("autoComplete_list_1").removeAttribute("hidden");
 		});
 	}
