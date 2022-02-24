@@ -2,7 +2,7 @@ function blurContent() {
   if (document.getElementById("page_wrapper").className == "wrapper resources") {
     $(".nav-container").css('opacity', 1);
     $(".contentAndHeaderContainer").css('opacity', 0.1);
-    document.getElementsByClassName("contentAndHeaderContainer").style.transition = "opacity 0.5s";
+    document.getElementsByClassName("contentAndHeaderContainer")[0].style.transition = "opacity 0.5s";
     $(".card-resources").css('opacity', 0.1);
     $(".container").css('opacity', 0.1);
     $("footer").css('opacity', 0.1);
