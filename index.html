@@ -240,6 +240,7 @@
 						x.setAttribute('class', 'results');
 						x.setAttribute('tabindex', 0);
 						x.setAttribute('id', 'result_Item_' + i);
+						x.setAttribute('onkeydown','tabPressed(this)');
 						x.onkeydown = null;
 						document.querySelector('#autoComplete_list_1').appendChild(x);
 					}
@@ -324,6 +325,13 @@
 					   }
 					),
 					selection: (function(event) {
+						if(event.detail.event.key === 'Tab')
+						{
+							console.log(event.detail);
+							tabPressed(event.detail);
+						}
+						else
+						{
 						var auto = document.getElementById("autoComplete");
 						var feedback = event.detail;
 						// Prepare User's Selected Value
@@ -344,12 +352,19 @@
 						console.log("hello");
 						auto.blur();
 						auto.focus();
-
+					}
 					})
 				}
 			},
 			searchEngine: "strict",
 			trigger: (function (query) {
+			if(query.length < 2)
+			{
+				$('.card-resources').css('marginLeft','0px');
+        		$('.card-resources').css('marginLeft','auto');
+        		$('.card-resources').css('marginRight','0px');
+        		$('.card-resources').css('marginRight','auto');
+			}
             return query.length > 2; // Returns "Boolean"
          })
 		});
@@ -417,7 +432,7 @@
 			</nav>
 		</div>
 		<div class="contentAndHeaderContainer">
-			<main id = "#main_content">
+			<main id = "main_content">
 				<div class="headerContainer">
 						<div class="container">
 							<div id="header">
@@ -426,12 +441,10 @@
 									<div id="middleColumnContent">
 										<h1>The Resource Hub</h1>
 										<p>Stay on track of your mental wellbeing with these helpful resource guides.</p>
-										<search>
 										<div class="autoComplete_Wrapper">
 											<input id="autoComplete" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" onkeyup="buttonSearching(this.value); inputZero(this.value.length);" onkeydown="inputZero(this.value.length)">
                                   			<img alt="search image" class="magnifyingGlass" onclick="clearAutoComplete(this)" tabindex="0"/> 
 										</div>
-										</search>
 									</div>
 								</div>
 								<div class="column" id="header__imageRight"> <img alt="" src="./uploads/ResourceImage/RightResource.png"> </div>

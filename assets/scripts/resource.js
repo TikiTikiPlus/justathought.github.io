@@ -24,13 +24,8 @@ function resourceOnload() {
   cardResourcesButton = document.querySelectorAll('.card-resources_Button');
 input.addEventListener('keyup', function (event) {
   var keyName = event.key;
-  if (keyName === 'Enter' || keyName === 'Tab') {
-    if ($('.results').length == 1) {
-      $('.results')[0].click();
-    }
-    if (keyName === 'Enter' && $('.results').length > 1) {
-      input.blur();
-    }
+  if (keyName === 'Enter') {
+    input.blur();
   }
 });
 buttonsPressed = false;
@@ -191,4 +186,8 @@ function centeredCard(visibleCardCount)
       }
     }
   }
+}
+function tabPressed(listItem)
+{
+  console.log(listItem);
 }
