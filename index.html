@@ -117,7 +117,7 @@
 		var titleContent = document.querySelectorAll("div.card-resources h2");
 		var descriptions = document.querySelectorAll("div.card-resources p");
 		var JSONArray;
-
+		var maxResults=5;
 	function manufactureArray(props, content, titleContent, description) {
     var arr = [];
     var obj;
@@ -210,7 +210,7 @@
 							}
 						}
 					}
-					for(resultIndex = 0; resultIndex < 5; resultIndex++) {
+					for(resultIndex = 0; resultIndex < maxResults; resultIndex++) {
 						data.results.push(data.matches[resultIndex]);
 					}
 					var uniq = data.results.reduce(function(a, b) {
@@ -269,7 +269,7 @@
 							contentIndex++;
 						}
 						//incase there is more than 5 results
-						while(data.results.length > 5) {
+						while(data.results.length > maxResults) {
 							data.results.pop();
 						}
 						for(contentIndex = 0; contentIndex<content.length; contentIndex++)
