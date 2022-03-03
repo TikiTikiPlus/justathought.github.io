@@ -1,18 +1,3 @@
-function blurContent() {
-  if (document.getElementById("page_wrapper").className == "wrapper resources") {
-    $(".nav-container").css('opacity', 1);
-    $(".contentAndHeaderContainer").css('opacity', 0.1);
-    document.getElementsByClassName("contentAndHeaderContainer")[0].style.transition = "opacity 0.5s";
-    $(".card-resources").css('opacity', 0.1);
-    $(".container").css('opacity', 0.1);
-    $("footer").css('opacity', 0.1);
-  } else {
-    $(".contentAndHeaderContainer").css('opacity', 1);
-    $(".card-resources").css('opacity', 1);
-    $(".container").css('opacity', 1);
-    $("footer").css('opacity', 1);
-  }
-} 
 //when website has been loaded, call this function.
 //adds events to autocomplete searchbar
 function resourceOnload() {
@@ -32,9 +17,6 @@ buttonsPressed = false;
 input.addEventListener('focus', function () {
   $('#autoComplete').keyup();
 });
-input.addEventListener('change', function () {
-  return input.hasChanged = true;
-});
 input.addEventListener('blur', function () {
   document.getElementsByClassName('autoComplete_Wrapper')[0].style.borderRadius = '25px';
 });
@@ -46,6 +28,7 @@ input.addEventListener('blur', function () {
   {
     buttonWrapperButtons[buttonIndex].setAttribute('aria-label','quick search '+buttonWrapperButtons[buttonIndex].textContent);
   }
+  //in case the cards at the start doesn't have a nice 3 cards at the end
   centeredCard(content.length);
 }
 //starts when the buttons are pressed
@@ -63,7 +46,8 @@ function buttonPressed(buttonValue) {
     buttonValue.setAttribute("buttonStatus", "notPressed");
     $('#autoComplete').keyup();
   }
-} //checks if input is zero or not
+} 
+//checks if autocomplete search bar is zero or not
 //if it is, then show every content
 function inputZero(valueLength) {
   if(valueLength > 0)
@@ -97,6 +81,7 @@ function clearAutoComplete(xButton) {
         input.focus();
     }
 }
+//changes the status of buttons if buttonText variable button textContent
 function buttonSearching(buttonText) {
   buttonsPressed = false;
   var a = 0;
@@ -142,7 +127,8 @@ function buttonChange(textSearch, buttonPressed) {
     }
     centeredCard(visibleCardNumber);
   }
-} 
+}
+//make the last 2 cards look centered in full screen
 function centeredCard(visibleCardCount)
 {
   let visibleLast = false;
@@ -186,8 +172,4 @@ function centeredCard(visibleCardCount)
       }
     }
   }
-}
-function tabPressed(listItem)
-{
-  console.log(listItem);
 }
