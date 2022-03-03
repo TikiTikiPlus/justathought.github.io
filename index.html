@@ -325,12 +325,7 @@
 					   }
 					),
 					selection: (function(event) {
-						if(event.detail.event.key === 'Tab')
-						{
-							console.log(event.detail);
-							tabPressed(event.detail);
-						}
-						else
+						if(event.detail.event.key !== 'Tab')
 						{
 						var auto = document.getElementById("autoComplete");
 						var feedback = event.detail;
