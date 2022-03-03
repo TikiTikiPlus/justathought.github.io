@@ -81,7 +81,7 @@ function clearAutoComplete(xButton) {
         input.focus();
     }
 }
-//changes the status of buttons if buttonText variable button textContent
+//changes the status of buttons if buttonText variable has the same texts as button textContent
 function buttonSearching(buttonText) {
   buttonsPressed = false;
   var a = 0;
