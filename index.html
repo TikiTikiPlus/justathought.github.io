@@ -248,6 +248,8 @@
 					$('.card-resources').css("marginRight", "auto");
 					$('.card-resources').css("marginLeft", "0px");
 					$('.card-resources').css("marginLeft", "auto");
+					//the cards being hidden here now so the latter parts of the code doesn't have to hide the cards but rather
+					//just make them visible
 					$('.card-resources').css("display", "none");
 					$('.card-resources').css("visibility", "hidden");	
 					try {
@@ -291,9 +293,10 @@
 					} catch(e) {
 						console.log(e);
 					}
+					// Create "No Results" message element
 					message.innerHTML = "Displaying <strong>" + data.results.length + "</strong> out of <strong>" + data.matches.length + "</strong> results";
 					if(!data.results.length) {
-						// Create "No Results" message element
+						
 						// Add class to the created element
 						message.setAttribute("class", "no_result");
 						// Add message text content
